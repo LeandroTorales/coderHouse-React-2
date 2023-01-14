@@ -1,0 +1,20 @@
+.cart__icon {
+  font-size: 40px;
+  color: white;
+}
+
+.link--react__router {
+  text-decoration: none;
+  color: white;
+}
+
+.link--react__router:visited {
+  color: white;
+}
+
+.links {
+  position: absolute;
+  top: -2000px;
+  left: -2000px;
+  text-align: center;
+}
