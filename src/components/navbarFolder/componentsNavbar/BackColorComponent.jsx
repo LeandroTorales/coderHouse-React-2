@@ -13,8 +13,8 @@ const StyledBackColor = styled.div`
     height: 100vh;
     z-index: -1;
     transition: all 0.6s;
-    .activePromise{
-        display: none;
+    .activePromise {
+      display: none;
     }
   }
 `;
@@ -23,7 +23,7 @@ const BackColorComponent = ({ propClicked }) => {
   return (
     <>
       <StyledBackColor
-        className= {propClicked ? "activeBackground" : ""}
+        className={propClicked ? "activeBackground" : ""}
       ></StyledBackColor>
     </>
   );

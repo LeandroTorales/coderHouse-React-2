@@ -31,6 +31,7 @@ const ItemCount = ({ stock }) => {
 
   const handleClick = (operation) => {
     if (stockState === 1 && operation === restaStock) return;
+    if (stockState === propStock && operation === sumarStock) return;
     return operation();
   };
 

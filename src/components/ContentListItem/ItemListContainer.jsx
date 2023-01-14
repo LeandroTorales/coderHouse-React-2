@@ -9,11 +9,11 @@ const ItemListContainer = () => {
     getPromiseItems().then((respuesta) => {
       return setProducts(respuesta);
     });
-  }, []);
+  }, [products]);
 
   return (
     <>
-      <ItemList products={products}/>
+      <ItemList products={products} />
     </>
   );
 };

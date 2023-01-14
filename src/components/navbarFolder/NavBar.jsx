@@ -39,23 +39,23 @@ const NavBar = () => {
           handleClickFunc={handleClick}
           propClicked={click}
         >
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link path="/" element="" className="link--react__router">
             <CategoryComponent NameCategory="Home" key={"home"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link path="/" element="" className="link--react__router">
             <CategoryComponent NameCategory="Zapatillas" key={"zapatillas"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link path="/" element="" className="link--react__router">
             <CategoryComponent NameCategory="Abrigos" key={"abrigos"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link path="/" element="" className="link--react__router">
             <CategoryComponent NameCategory="Contacto" key={"contacto"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link path="/" element="" className="link--react__router">
             <CategoryComponent
               NameCategory="Preguntas frecuentes"
               key={"preguntas frecuentes"}
@@ -64,7 +64,7 @@ const NavBar = () => {
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <CartWidget />
-        <BackColorComponent propClicked={click}/>
+        <BackColorComponent propClicked={click} />
       </StyledContainerHeader>
     </>
   );
