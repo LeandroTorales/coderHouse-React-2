@@ -4,11 +4,12 @@ import styled from "styled-components";
 const StyledButton = styled.button`
   background-color: #75e7e79b;
   width: 100%;
-  height: 10%;
+  height: 50px;
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: bold;
   border: none;
+  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
   &:hover {
@@ -17,7 +18,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const ButtonItem = () => {
+const ButtonItemAdd = () => {
   return (
     <>
       <StyledButton>Añadir al carrito</StyledButton>
@@ -25,4 +26,4 @@ const ButtonItem = () => {
   );
 };
 
-export default ButtonItem;
+export default ButtonItemAdd;

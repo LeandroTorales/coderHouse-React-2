@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
-import ButtonItem from "./ButtonItem";
+import ButtonItemAdd from "./ButtonItemAdd";
 import ColorsZapatillasProps from "./ColorsZapatillasProps";
 import ItemCount from "./ItemCount";
 import StyledItemCard from "./StyledItemCard";
+import VerDetallesButton from "./VerDetallesButton";
 
 const StyledLineDivisory = styled.div`
   width: 100%;
@@ -18,7 +19,6 @@ const StyledWrapperTalles = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 2rem;
-  gap: 5px;
   h3 {
     font-size: 1rem;
     font-weight: 400;
@@ -44,20 +44,20 @@ const StyledWrapperColor = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 2rem;
-  gap: 5px;
+
   h3 {
     font-size: 1rem;
     font-weight: 400;
   }
 `;
 
-const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock }) => {
+const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock, id }) => {
   return (
     <>
-      <StyledItemCard>
+      <StyledItemCard key={id}>
         <img src={`${imgUrl}`} alt={nameProduct} />
         <StyledLineDivisory></StyledLineDivisory>
-        <FlexWrapper flexDirectionProp={"column"} gapProp={"10px"}>
+        <FlexWrapper flexDirectionProp={"column"} gapProp={"5px"}>
           <p>{nameProduct}</p>
           <span>${price}</span>
           <ItemCount stock={stock} />
@@ -79,7 +79,10 @@ const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock }) => {
             ))}
           </FlexWrapper>
         </StyledWrapperColor>
-        <ButtonItem />
+        <FlexWrapper flexDirectionProp={"column"} widthProp={"100%"}>
+          <VerDetallesButton />
+          <ButtonItemAdd />
+        </FlexWrapper>
       </StyledItemCard>
     </>
   );

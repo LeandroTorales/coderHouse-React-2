@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPromiseItems } from "./dataObjects/promise";
+import { getPromiseItems } from "../dataObjects/promise";
 import ItemList from "./components/ItemList";
 
 const ItemListContainer = () => {

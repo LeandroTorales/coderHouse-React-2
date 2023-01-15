@@ -22,7 +22,7 @@ const StyledCount = styled.div`
 `;
 
 const ItemCount = ({ stock }) => {
-  let propStock = stock;
+  let propStock = Number(stock);
 
   const [stockState, setStockState] = useState(propStock);
 
