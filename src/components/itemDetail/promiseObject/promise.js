@@ -1,11 +1,9 @@
-import { dataObjectsItems } from "./data";
+import { dataObjectsItems } from "../../dataObjects/data";
 
-/* export const getPromiseItems = async () => {
+export const getPromiseSingleItem = async () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(dataObjectsItems);
+      resolve(dataObjectsItems[0]);
     }, 200);
   });
 };
- */
-/* Hacer la promise pero para renderizar un objeto en particular  */

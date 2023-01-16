@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const StyledCount = styled.div`
@@ -22,7 +22,7 @@ const StyledCount = styled.div`
 `;
 
 const ItemCount = ({ stock }) => {
-  let propStock = Number(stock);
+  const propStock = Number(stock);
 
   const [stockState, setStockState] = useState(propStock);
 
@@ -34,6 +34,11 @@ const ItemCount = ({ stock }) => {
     if (stockState === propStock && operation === sumarStock) return;
     return operation();
   };
+    
+useEffect(() => {
+  setStockState(propStock)
+}, [propStock])
+
 
   return (
     <>

@@ -25,7 +25,6 @@ const StyledContainerHeader = styled.header`
 
 const NavBar = () => {
   const [click, setClicked] = useState(false);
-  console.log(click);
 
   const handleClick = () => {
     setClicked(!click);

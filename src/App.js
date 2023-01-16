@@ -3,6 +3,7 @@ import NavBar from "./components/navbarFolder/NavBar";
 import ItemListContainer from "./components/ContentListItem/ItemListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetail from "./components/itemDetail/components/ItemDetail";
+import ItemDetailContainer from "./components/itemDetail/ItemDetailContainer";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           {/* <Route path="" /> */}
         </Routes>
       </BrowserRouter>
-      <ItemDetail />
+      <ItemDetailContainer />
     </>
   );
 }

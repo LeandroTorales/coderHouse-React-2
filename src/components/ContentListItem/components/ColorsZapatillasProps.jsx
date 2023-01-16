@@ -12,6 +12,10 @@ const StyledComponentColors = styled.div`
     border: 2px solid black;
     cursor: pointer;
   }
+  @media (max-width: 768px) {
+       width: 35px;
+    height: 35px;
+    }
 `;
 
 const ColorsZapatillasProps = ({ propsColor }) => {

@@ -1,42 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { dataObjectsItems } from "../../dataObjects/data";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
+import { getPromiseSingleItem } from "../promiseObject/promise";
+import TallesMapDiv from "./TallesMapDiv";
 
 const StyledWrapperTallesDetail = styled.div`
   h3 {
     font-size: 1.3rem;
     font-weight: 400;
+    
   }
-  div > div {
-    font-weight: 300;
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    border: 2px solid black;
-    color: black;
-    cursor: pointer;
-    border-radius: 5px;
-    &:hover {
-      cursor: pointer;
-      font-weight: 500;
-    }
-    &:active {
-      background-color: black;
-      color: white;
-      border: 2px solid white;
+  div > div{
+   @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 3px 6px;
     }
   }
+    
+  
 `;
 
-const WrapperTallesDetail = ({ sizes }) => {
+const WrapperTallesDetail = () => {
+  const [sizes, setSizes] = useState([]);
+
+  useEffect(() => {
+    getPromiseSingleItem().then((respuesta) => {
+      return setSizes(respuesta.sizes);
+    });
+  }, [sizes]);
+
   return (
-    <StyledWrapperTallesDetail>
-      <h3>Talles</h3>
-      <FlexWrapper gapProp={"5px"}>
-        {sizes.map((size) => (
-          <div key={size}>{size}</div>
-        ))}
-      </FlexWrapper>
-    </StyledWrapperTallesDetail>
+    <>
+      <StyledWrapperTallesDetail>
+        <h3>Talles</h3>
+        <FlexWrapper gapProp={"5px"}>
+          {sizes.map((size) => (
+            <TallesMapDiv key={size} size={size}/>
+          ))}
+        </FlexWrapper>
+      </StyledWrapperTallesDetail>
+    </>
   );
 };
 

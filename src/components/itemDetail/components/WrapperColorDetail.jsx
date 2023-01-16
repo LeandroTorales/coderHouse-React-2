@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ColorsZapatillasProps from "../../ContentListItem/components/ColorsZapatillasProps";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
+import { getPromiseSingleItem } from "../promiseObject/promise";
 
 const StyledWrapperColorDetail = styled.div`
   h3 {
@@ -10,10 +11,19 @@ const StyledWrapperColorDetail = styled.div`
   }
   div {
     gap: 10px;
+    
   }
 `;
 
-const WrapperColorDetail = ({ colors }) => {
+const WrapperColorDetail = () => {
+  const [colors, setColors] = useState([]);
+
+  useEffect(() => {
+    getPromiseSingleItem().then((respuesta) => {
+      return setColors(respuesta.colors);
+    });
+  }, [colors]);
+
   return (
     <StyledWrapperColorDetail>
       <h3>Colores</h3>

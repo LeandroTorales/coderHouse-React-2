@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
+  border-radius: ${(props) => props.borderRadiusProp};
   background-color: #75e7e79b;
   width: 100%;
   height: 50px;
@@ -18,10 +19,10 @@ const StyledButton = styled.button`
   }
 `;
 
-const ButtonItemAdd = () => {
+const ButtonItemAdd = ({ borderRadiusProp }) => {
   return (
     <>
-      <StyledButton>Añadir al carrito</StyledButton>
+      <StyledButton borderRadiusProp={borderRadiusProp }>Añadir al carrito</StyledButton>
     </>
   );
 };
