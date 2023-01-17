@@ -1,14 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { getPromiseItems } from "../dataObjects/promise";
+import { getByCategoryItems, getPromiseItems } from "./promise";
 import ItemList from "./components/ItemList";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getPromiseItems().then((respuesta) => {
+  let categoryParams = undefined;
+
+  /*   console.log('categoryParams:', categoryParams)
+   */
+
+  const getItems = async () => {
+    if (!categoryParams) {
+      let respuesta = await getPromiseItems();
       return setProducts(respuesta);
-    });
+    } else {
+      let respuesta = await getByCategoryItems(categoryParams);
+      return setProducts(respuesta);
+    }
+  };
+
+  useEffect(() => {
+    getItems();
   }, [products]);
 
   return (

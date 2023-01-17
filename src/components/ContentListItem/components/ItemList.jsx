@@ -8,7 +8,7 @@ const ItemList = ({ products }) => {
       <FlexWrapper gapProp={"25px"} wrapProp={"wrap"}>
         {products.map((item) => (
           <Item
-            key={item.id}
+            key={item.nameProduct + item.id}
             id={item.id}
             nameProduct={item.nameProduct}
             imgUrl={item.imgUrl}

@@ -22,19 +22,19 @@ const StyledCardDetail = styled.div`
   box-shadow: -15px 14px 3px 6px rgba(196, 196, 196, 1);
   -webkit-box-shadow: -15px 14px 3px 6px rgba(196, 196, 196, 1);
   -moz-box-shadow: -15px 14px 3px 6px rgba(196, 196, 196, 1);
-@media (max-width: 768px) {
-           height: 95%;
+  @media (max-width: 768px) {
+    height: 95%;
     width: 90%;
-  div:first-of-type{
-  gap: 2px;
- }
+    div:first-of-type {
+      gap: 2px;
     }
+  }
 
   p.name--product {
     font-size: 2rem;
     text-transform: uppercase;
-     @media (max-width: 425px) {
-   font-size: 1.5rem;
+    @media (max-width: 425px) {
+      font-size: 1.5rem;
     }
   }
   span {
@@ -42,43 +42,44 @@ const StyledCardDetail = styled.div`
     font-weight: bold;
     color: #cb0808;
     @media (max-width: 768px) {
-           font-size: 2.3rem
+      font-size: 2.3rem;
     }
-     @media (max-width: 425px) {
-        font-size: 1.8rem;
+    @media (max-width: 425px) {
+      font-size: 1.8rem;
     }
   }
-  > div{
+  > div {
     width: 100%;
-    justify-content: space-evenly;height :calc(100% - 50px);
+    justify-content: space-evenly;
+    height: calc(100% - 50px);
     @media (max-width: 768px) {
       gap: 10px;
     }
-    > div:last-of-type{
+    > div:last-of-type {
       align-items: flex-start;
     }
-    div img{
-  height: auto;
-    width: 300px;
-    object-fit: contain;
-    border: 1px solid black;
-    @media (max-width: 425px) {
-      width: 215px;
-    }
+    div img {
+      height: auto;
+      width: 300px;
+      object-fit: contain;
+      border: 1px solid black;
+      @media (max-width: 425px) {
+        width: 215px;
+      }
     }
   }
 `;
 
 const ItemDetail = ({
+  id,
   imgUrl,
   nameProduct,
   price,
   sizes,
   colors,
-  stock,
+  stock = 0,
   textDescription,
 }) => {
-
   return (
     <>
       <FlexWrapper
@@ -88,26 +89,30 @@ const ItemDetail = ({
         flexDirectionProp={"row"}
       >
         <StyledCardDetail>
-          <FlexWrapper wrapProp = {"wrap"} flexDirectionProp={"row-reverse"}>
+          <FlexWrapper wrapProp={"wrap"} flexDirectionProp={"row-reverse"}>
             <FlexWrapper flexDirectionProp={"column"} gapProp={"15px"}>
               <FlexWrapper gapProp={"15px"}>
-                <FlexWrapper flexDirectionProp={"column"} >
+                <FlexWrapper flexDirectionProp={"column"}>
                   <p className="name--product">{nameProduct}</p>
-                     <span>{`$${price}`}</span>
+                  <span>{`$${price}`}</span>
                 </FlexWrapper>
-                  <ItemCount stock={stock} />
+                <ItemCount stock={stock} />
               </FlexWrapper>
               <ItemDescriptionDetail
                 textDescription={textDescription}
               ></ItemDescriptionDetail>
             </FlexWrapper>
-            <FlexWrapper flexDirectionProp={"column"} gapProp={"15px"} alignItemsProp={"flex-start"}>
+            <FlexWrapper
+              flexDirectionProp={"column"}
+              gapProp={"15px"}
+              alignItemsProp={"flex-start"}
+            >
               <img src={imgUrl} alt="" />
-              <WrapperTallesDetail ></WrapperTallesDetail>
-              <WrapperColorDetail ></WrapperColorDetail>
+              <WrapperTallesDetail id={id}></WrapperTallesDetail>
+              <WrapperColorDetail id={id}></WrapperColorDetail>
             </FlexWrapper>
           </FlexWrapper>
-          <ButtonItemAdd borderRadiusProp = {"0px 0px 25px 25px;"} />
+          <ButtonItemAdd borderRadiusProp={"0px 0px 25px 25px;"} />
         </StyledCardDetail>
       </FlexWrapper>
     </>

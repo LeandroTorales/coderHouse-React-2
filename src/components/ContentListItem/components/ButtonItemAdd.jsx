@@ -22,7 +22,9 @@ const StyledButton = styled.button`
 const ButtonItemAdd = ({ borderRadiusProp }) => {
   return (
     <>
-      <StyledButton borderRadiusProp={borderRadiusProp }>Añadir al carrito</StyledButton>
+      <StyledButton borderRadiusProp={borderRadiusProp}>
+        Añadir al carrito
+      </StyledButton>
     </>
   );
 };

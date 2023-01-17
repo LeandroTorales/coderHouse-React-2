@@ -29,6 +29,15 @@ const StyledItemStyled = styled.div`
       font-weight: bold;
     }
   }
+  .link--detail {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    &:link {
+      text-decoration: none;
+    }
+  }
 `;
 
 const StyledItemCard = ({ children }) => {

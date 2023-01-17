@@ -22,7 +22,8 @@ export const dataObjectsItems = [
   {
     id: 3,
     nameProduct: "nike tn plus advanced",
-    imgUrl: "https://http2.mlstatic.com/D_NQ_NP_774114-MLA53120075411_012023-W.jpg",
+    imgUrl:
+      "https://http2.mlstatic.com/D_NQ_NP_774114-MLA53120075411_012023-W.jpg",
     price: 75000,
     stock: 4,
     sizes: [41, 42, 43, 44, 45],

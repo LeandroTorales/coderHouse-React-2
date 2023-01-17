@@ -34,11 +34,10 @@ const ItemCount = ({ stock }) => {
     if (stockState === propStock && operation === sumarStock) return;
     return operation();
   };
-    
-useEffect(() => {
-  setStockState(propStock)
-}, [propStock])
 
+  useEffect(() => {
+    setStockState(propStock);
+  }, [propStock]);
 
   return (
     <>

@@ -11,24 +11,26 @@ const StyledWrapperColorDetail = styled.div`
   }
   div {
     gap: 10px;
-    
   }
 `;
 
-const WrapperColorDetail = () => {
-  const [colors, setColors] = useState([]);
+const WrapperColorDetail = ({ id }) => {
+  const [colorsState, setColors] = useState([]);
+
+  const getItem = async () => {
+    let respuesta = await getPromiseSingleItem(id);
+    return setColors(respuesta.colors);
+  };
 
   useEffect(() => {
-    getPromiseSingleItem().then((respuesta) => {
-      return setColors(respuesta.colors);
-    });
-  }, [colors]);
+    getItem();
+  }, [id]);
 
   return (
     <StyledWrapperColorDetail>
       <h3>Colores</h3>
       <FlexWrapper gapProp={"5px"}>
-        {colors.map((color) => (
+        {colorsState.map((color) => (
           <ColorsZapatillasProps propsColor={color} key={color} />
         ))}
       </FlexWrapper>

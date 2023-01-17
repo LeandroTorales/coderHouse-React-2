@@ -1,9 +1,8 @@
 import { dataObjectsItems } from "../../dataObjects/data";
 
-export const getPromiseSingleItem = async () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(dataObjectsItems[0]);
-    }, 200);
-  });
+export const getPromiseSingleItem = async (queryParam) => {
+  let respuesta = dataObjectsItems.find(
+    (item) => item.id === Number(queryParam)
+  );
+  return respuesta;
 };

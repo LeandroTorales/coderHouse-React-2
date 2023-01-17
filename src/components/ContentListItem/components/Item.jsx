@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
 import ButtonItemAdd from "./ButtonItemAdd";
@@ -80,7 +81,9 @@ const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock, id }) => {
           </FlexWrapper>
         </StyledWrapperColor>
         <FlexWrapper flexDirectionProp={"column"} widthProp={"100%"}>
-          <VerDetallesButton />
+          <Link to={`/zapatillas/${id}`} className="link--detail">
+            <VerDetallesButton />
+          </Link>
           <ButtonItemAdd />
         </FlexWrapper>
       </StyledItemCard>
