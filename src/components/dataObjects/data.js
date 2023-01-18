@@ -9,6 +9,7 @@ export const dataObjectsItems = [
     stock: 8,
     sizes: [39, 41, 42, 43, 45],
     colors: ["red", "blue", "yellow", "purple"],
+    category: 1,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const dataObjectsItems = [
     stock: 15,
     sizes: [39, 40, 41, 42],
     colors: ["red", "blue", "violet", "yellow", "purple"],
+    category: 1,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const dataObjectsItems = [
     stock: 4,
     sizes: [41, 42, 43, 44, 45],
     colors: ["red", "blue", "violet", "yellow", "purple"],
+    category: 1,
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ export const dataObjectsItems = [
     stock: 2,
     sizes: [41, 42, 43],
     colors: ["orange", "yellow"],
+    category: 1,
   },
   {
     id: 5,
@@ -48,5 +52,39 @@ export const dataObjectsItems = [
     stock: 6,
     sizes: [40, 41, 42, 43, 44, 45],
     colors: ["red", "blue", "violet", "yellow"],
+    category: 1,
+  },
+  {
+    id: 6,
+    nameProduct: "campera nike rompevientos",
+    imgUrl:
+      "https://media.solodeportes.com.ar/media/catalog/product/cache/a0bd03cb38235cf9ca6c3c8cbea4afc1/c/a/campera-rompeviento-nike-windrunner-blanca-510020da0001084-1.jpg",
+    price: 75000,
+    stock: 5,
+    sizes: ["M", "L", "XL", "XXL"],
+    colors: ["red", "blue", "violet", "yellow"],
+    category: 2,
+  },
+  {
+    id: 7,
+    nameProduct: "campera nike puffer",
+    imgUrl:
+      "http://d3ugyf2ht6aenh.cloudfront.net/stores/001/015/914/products/windrunner-21-c742405eea01361c7216564499333310-640-0.webp",
+    price: 105000,
+    stock: 15,
+    sizes: ["M", "L", "XL", "XXL"],
+    colors: ["red", "blue", "violet", "yellow"],
+    category: 2,
+  },
+  {
+    id: 8,
+    nameProduct: "tnf puffer",
+    imgUrl:
+      "https://http2.mlstatic.com/D_NQ_NP_881689-MLA51358248145_082022-W.jpg",
+    price: 120000,
+    stock: 20,
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["red", "blue", "violet", "yellow"],
+    category: 2,
   },
 ];

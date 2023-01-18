@@ -6,8 +6,8 @@ const StyledItemStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 550px;
-  width: 300px;
+  height: 600px;
+  width: 280px;
   background-color: white;
   color: black;
   text-shadow: 2px 2px 2px white;
@@ -15,11 +15,12 @@ const StyledItemStyled = styled.div`
   margin-top: 10px;
   img {
     object-fit: cover;
-    height: 200px;
+    height: 250px;
     width: 100%;
   }
   div {
     p {
+      text-align: center;
       font-size: 1.6rem;
       text-transform: uppercase;
       font-weight: 500;

@@ -81,7 +81,7 @@ const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock, id }) => {
           </FlexWrapper>
         </StyledWrapperColor>
         <FlexWrapper flexDirectionProp={"column"} widthProp={"100%"}>
-          <Link to={`/zapatillas/${id}`} className="link--detail">
+          <Link to={`/product/${id}`} className="link--detail">
             <VerDetallesButton />
           </Link>
           <ButtonItemAdd />

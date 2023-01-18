@@ -33,7 +33,9 @@ const NavBar = () => {
   return (
     <>
       <StyledContainerHeader>
-        <TitleComponentNavbar />
+        <Link to="/" element="" className="link--react__router">
+          <TitleComponentNavbar />
+        </Link>
         <ContainerNavCategories
           handleClickFunc={handleClick}
           propClicked={click}
@@ -42,11 +44,15 @@ const NavBar = () => {
             <CategoryComponent NameCategory="Home" key={"home"} />
           </Link>
 
-          <Link to="/zapatillas" element="" className="link--react__router">
+          <Link to="/products" element="" className="link--react__router">
+            <CategoryComponent NameCategory="Productos" key={"products"} />
+          </Link>
+
+          <Link to="/products/1" element="" className="link--react__router">
             <CategoryComponent NameCategory="Zapatillas" key={"zapatillas"} />
           </Link>
 
-          <Link to="/" element="" className="link--react__router">
+          <Link to="/products/2" element="" className="link--react__router">
             <CategoryComponent NameCategory="Abrigos" key={"abrigos"} />
           </Link>
 

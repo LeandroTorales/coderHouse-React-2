@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { getByCategoryItems, getPromiseItems } from "./promise";
 import ItemList from "./components/ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
-  let categoryParams = undefined;
+  let { categoryId } = useParams();
 
-  /*   console.log('categoryParams:', categoryParams)
-   */
 
   const getItems = async () => {
-    if (!categoryParams) {
+    if (categoryId == undefined) {
       let respuesta = await getPromiseItems();
       return setProducts(respuesta);
     } else {
-      let respuesta = await getByCategoryItems(categoryParams);
+      let respuesta = await getByCategoryItems(categoryId);
       return setProducts(respuesta);
     }
   };
 
   useEffect(() => {
     getItems();
-  }, [products]);
+  }, [categoryId]);
 
   return (
     <>

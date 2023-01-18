@@ -5,9 +5,9 @@ export const getPromiseItems = async () => {
   return respuesta;
 };
 
-export const getByCategoryItems = async (categoryName) => {
+export const getByCategoryItems = async (categoryId) => {
   let itemsCategory = dataObjectsItems.filter(
-    (item) => item.category === categoryName
+    (item) => item.category == categoryId
   );
   let respuesta = itemsCategory;
   return respuesta;
