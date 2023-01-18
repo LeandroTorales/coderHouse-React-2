@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
-import ButtonItem from "./ButtonItem";
+import ButtonItemAdd from "./ButtonItemAdd";
+import ColorsZapatillasProps from "./ColorsZapatillasProps";
 import ItemCount from "./ItemCount";
-import StyledItem from "./StyledItemCard";
+import StyledItemCard from "./StyledItemCard";
+import VerDetallesButton from "./VerDetallesButton";
 
 const StyledLineDivisory = styled.div`
   width: 100%;
@@ -17,7 +20,6 @@ const StyledWrapperTalles = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 2rem;
-  gap: 5px;
   h3 {
     font-size: 1rem;
     font-weight: 400;
@@ -43,33 +45,20 @@ const StyledWrapperColor = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 2rem;
-  gap: 5px;
+
   h3 {
     font-size: 1rem;
     font-weight: 400;
   }
-  div > div {
-    border: 1px solid black;
-    color: black;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: grey;
-    /* background-color: ${(props) => props.backgroundColorColoresZapasMAP} */
-    &:hover {
-      border: 2px solid black;
-      cursor: pointer;
-    }
-  }
 `;
 
-const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock }) => {
+const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock, id }) => {
   return (
     <>
-      <StyledItem>
+      <StyledItemCard key={id}>
         <img src={`${imgUrl}`} alt={nameProduct} />
         <StyledLineDivisory></StyledLineDivisory>
-        <FlexWrapper flexDirectionProp={"column"} gapProp={"10px"}>
+        <FlexWrapper flexDirectionProp={"column"} gapProp={"5px"}>
           <p>{nameProduct}</p>
           <span>${price}</span>
           <ItemCount stock={stock} />
@@ -87,12 +76,17 @@ const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock }) => {
           <h3>Colores</h3>
           <FlexWrapper gapProp={"5px"}>
             {colors.map((color) => (
-              <div></div>
+              <ColorsZapatillasProps propsColor={color}></ColorsZapatillasProps>
             ))}
           </FlexWrapper>
         </StyledWrapperColor>
-        <ButtonItem />
-      </StyledItem>
+        <FlexWrapper flexDirectionProp={"column"} widthProp={"100%"}>
+          <Link to={`/product/${id}`} className="link--detail">
+            <VerDetallesButton />
+          </Link>
+          <ButtonItemAdd />
+        </FlexWrapper>
+      </StyledItemCard>
     </>
   );
 };

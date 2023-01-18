@@ -25,7 +25,6 @@ const StyledContainerHeader = styled.header`
 
 const NavBar = () => {
   const [click, setClicked] = useState(false);
-  console.log(click);
 
   const handleClick = () => {
     setClicked(!click);
@@ -34,28 +33,34 @@ const NavBar = () => {
   return (
     <>
       <StyledContainerHeader>
-        <TitleComponentNavbar />
+        <Link to="/" element="" className="link--react__router">
+          <TitleComponentNavbar />
+        </Link>
         <ContainerNavCategories
           handleClickFunc={handleClick}
           propClicked={click}
         >
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link to="/" element="" className="link--react__router">
             <CategoryComponent NameCategory="Home" key={"home"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link to="/products" element="" className="link--react__router">
+            <CategoryComponent NameCategory="Productos" key={"products"} />
+          </Link>
+
+          <Link to="/products/1" element="" className="link--react__router">
             <CategoryComponent NameCategory="Zapatillas" key={"zapatillas"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link to="/products/2" element="" className="link--react__router">
             <CategoryComponent NameCategory="Abrigos" key={"abrigos"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link to="/" element="" className="link--react__router">
             <CategoryComponent NameCategory="Contacto" key={"contacto"} />
           </Link>
 
-          <Link path="/" element="" className="link--react__router" onClick={handleClick}>
+          <Link to="/" element="" className="link--react__router">
             <CategoryComponent
               NameCategory="Preguntas frecuentes"
               key={"preguntas frecuentes"}
@@ -64,7 +69,7 @@ const NavBar = () => {
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <CartWidget />
-        <BackColorComponent propClicked={click}/>
+        <BackColorComponent propClicked={click} />
       </StyledContainerHeader>
     </>
   );

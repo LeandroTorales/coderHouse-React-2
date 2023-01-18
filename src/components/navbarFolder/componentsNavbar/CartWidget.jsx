@@ -17,8 +17,8 @@ const StyledNotificationCart = styled.span`
   text-shadow: 2px 2px 2px black;
   text-align: center;
   position: absolute;
-margin-bottom: 25px;
-    margin-left: 30px;
+  margin-bottom: 25px;
+  margin-left: 30px;
 `;
 
 const StyledButtonCart = styled.button`

@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { getPromiseItems } from "./dataObjects/promise";
+import { getByCategoryItems, getPromiseItems } from "./promise";
 import ItemList from "./components/ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    getPromiseItems().then((respuesta) => {
+  let { categoryId } = useParams();
+
+
+  const getItems = async () => {
+    if (categoryId == undefined) {
+      let respuesta = await getPromiseItems();
       return setProducts(respuesta);
-    });
-  }, []);
+    } else {
+      let respuesta = await getByCategoryItems(categoryId);
+      return setProducts(respuesta);
+    }
+  };
+
+  useEffect(() => {
+    getItems();
+  }, [categoryId]);
 
   return (
     <>
-      <ItemList products={products}/>
+      <ItemList products={products} />
     </>
   );
 };
