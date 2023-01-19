@@ -58,7 +58,7 @@ const Item = ({ imgUrl, nameProduct, price, sizes, colors, stock, id }) => {
       <StyledItemCard key={id}>
         <img src={`${imgUrl}`} alt={nameProduct} />
         <StyledLineDivisory></StyledLineDivisory>
-        <FlexWrapper flexDirectionProp={"column"} gapProp={"5px"}>
+        <FlexWrapper flexDirectionProp={"column"} gapProp={"5px"} heightProp={"180px"} className="justify--WrapperCount">
           <p>{nameProduct}</p>
           <span>${price}</span>
           <ItemCount stock={stock} />

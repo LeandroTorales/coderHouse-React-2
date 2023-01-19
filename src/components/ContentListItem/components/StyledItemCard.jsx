@@ -6,7 +6,7 @@ const StyledItemStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 600px;
+height: 645px;
   width: 280px;
   background-color: white;
   color: black;
@@ -18,6 +18,12 @@ const StyledItemStyled = styled.div`
     height: 250px;
     width: 100%;
   }
+  
+  div:nth-child(3){
+     justify-content: space-between;
+    }
+
+
   div {
     p {
       text-align: center;

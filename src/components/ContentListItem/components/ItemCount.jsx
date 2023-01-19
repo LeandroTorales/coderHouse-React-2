@@ -36,7 +36,7 @@ const ItemCount = ({ stock }) => {
   };
 
   useEffect(() => {
-    setStockState(propStock);
+    setStockState(1);
   }, [propStock]);
 
   return (
