@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -19,11 +20,20 @@ const StyledButton = styled.button`
   }
 `;
 
-const ButtonItemAdd = ({ borderRadiusProp }) => {
+const ButtonItemAdd = ({ borderRadiusProp, product }) => {
+  let navigate = useNavigate();
+
+  const productSendToCart = () => {
+    console.log("product:", product);
+  };
+
   return (
     <>
-      <StyledButton borderRadiusProp={borderRadiusProp}>
-        Añadir al carrito
+      <StyledButton
+        borderRadiusProp={borderRadiusProp}
+        onClick={productSendToCart}
+      >
+        <div onClick={() => navigate(-1)}>Añadir al carrito</div>
       </StyledButton>
     </>
   );

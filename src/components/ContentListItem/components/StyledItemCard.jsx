@@ -6,23 +6,18 @@ const StyledItemStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-height: 645px;
-  width: 280px;
+  height: 500px;
+  width: 350px;
   background-color: white;
   color: black;
   text-shadow: 2px 2px 2px white;
-  border: 2px solid black;
+  border: 3px solid black;
   margin-top: 10px;
   img {
     object-fit: cover;
-    height: 250px;
+    height: 305px;
     width: 100%;
   }
-  
-  div:nth-child(3){
-     justify-content: space-between;
-    }
-
 
   div {
     p {

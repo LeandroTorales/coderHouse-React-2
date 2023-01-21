@@ -33,34 +33,55 @@ const NavBar = () => {
   return (
     <>
       <StyledContainerHeader>
-        <Link to="/" element="" className="link--react__router">
+        <Link to="/" className="link--react__router">
           <TitleComponentNavbar />
         </Link>
-        <ContainerNavCategories
-          handleClickFunc={handleClick}
-          propClicked={click}
-        >
+        <ContainerNavCategories propClicked={click}>
           <Link to="/" element="" className="link--react__router">
-            <CategoryComponent NameCategory="Home" key={"home"} />
+            <CategoryComponent
+              handleClickFunc={handleClick}
+              NameCategory="Home"
+              key={"home"}
+            />
           </Link>
 
-          <Link to="/products" element="" className="link--react__router">
-            <CategoryComponent NameCategory="Productos" key={"products"} />
+          <Link to="/products" className="link--react__router">
+            <CategoryComponent
+              handleClickFunc={handleClick}
+              NameCategory="Productos"
+              key={"products"}
+            />
           </Link>
 
-          <Link to="/products/1" element="" className="link--react__router">
-            <CategoryComponent NameCategory="Zapatillas" key={"zapatillas"} />
+          <Link to="/products/1" className="link--react__router">
+            <CategoryComponent
+              handleClickFunc={handleClick}
+              NameCategory="Zapatillas"
+              key={"zapatillas"}
+            />
           </Link>
 
-          <Link to="/products/2" element="" className="link--react__router">
-            <CategoryComponent NameCategory="Abrigos" key={"abrigos"} />
+          <Link to="/products/2" className="link--react__router">
+            <CategoryComponent
+              handleClickFunc={handleClick}
+              NameCategory="Abrigos"
+              key={"abrigos"}
+            />
           </Link>
 
-          <Link to="/" element="" className="link--react__router">
-            <CategoryComponent NameCategory="Contacto" key={"contacto"} />
+          <Link to="/contacto" className="link--react__router">
+            <CategoryComponent
+              handleClickFunc={handleClick}
+              NameCategory="Contacto"
+              key={"contacto"}
+            />
           </Link>
 
-          <Link to="/" element="" className="link--react__router">
+          <Link
+            to="/preguntasFrecuentes"
+            element=""
+            className="link--react__router"
+          >
             <CategoryComponent
               NameCategory="Preguntas frecuentes"
               key={"preguntas frecuentes"}
@@ -68,8 +89,11 @@ const NavBar = () => {
           </Link>
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
-        <CartWidget />
-        <BackColorComponent propClicked={click} />
+        <Link to="/cart">
+          {" "}
+          <CartWidget />
+        </Link>
+        <BackColorComponent propClicked={click} handleClickFunc={handleClick} />
       </StyledContainerHeader>
     </>
   );

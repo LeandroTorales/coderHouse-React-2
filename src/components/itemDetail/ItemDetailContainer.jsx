@@ -7,6 +7,7 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
 
   let { id } = useParams();
+  console.log("id:", id);
 
   const getItem = async () => {
     let respuesta = await getPromiseSingleItem(id);
@@ -20,6 +21,7 @@ const ItemDetailContainer = () => {
   return (
     <>
       <ItemDetail
+        product={product}
         id={product.id}
         imgUrl={product.imgUrl}
         sizes={product.sizes}

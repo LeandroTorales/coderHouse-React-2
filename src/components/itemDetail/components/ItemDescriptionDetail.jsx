@@ -9,10 +9,10 @@ const StyledItemDescriptionDetail = styled.p`
   min-width: 230px;
   text-align: center;
   @media (max-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 `;
 

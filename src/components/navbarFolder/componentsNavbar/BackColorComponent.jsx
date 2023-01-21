@@ -3,15 +3,14 @@ import styled from "styled-components";
 
 const StyledBackColor = styled.div`
   position: absolute;
-  background-color: #f30c0c;
-  top: -2000px;
+  background-color: #9797978c;
+  left: -2000px;
 
   &.activeBackground {
-    top: 0;
+    top: 90px;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: -1;
     transition: all 0.6s;
     .activePromise {
       display: none;
@@ -19,10 +18,11 @@ const StyledBackColor = styled.div`
   }
 `;
 
-const BackColorComponent = ({ propClicked }) => {
+const BackColorComponent = ({ propClicked, handleClickFunc }) => {
   return (
     <>
       <StyledBackColor
+        onClick={() => handleClickFunc()}
         className={propClicked ? "activeBackground" : ""}
       ></StyledBackColor>
     </>
