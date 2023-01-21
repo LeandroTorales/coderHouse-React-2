@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ItemListContainer from "../components/ContentListItem/ItemListContainer";
 
@@ -44,6 +45,23 @@ const StyledHomePage = styled.div`
       color: white;
       text-shadow: 2px 2px 2px black;
     }
+    a{
+          font-size: 1.4rem;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: black;
+    text-decoration: none;
+    transition: all .5s;
+    &:hover{
+            font-size: 1.6rem;
+    background-color: black;
+    border-radius: 10px;
+    padding: 7px 17px;
+    color: white;
+
+    }
+    }
   }
 `;
 
@@ -59,9 +77,12 @@ const HomePage = () => {
             por los collecionistas de zapatillas y camperas puffer. Vendemos
             todo 100% original.
           </p>
+          <Link to="/products">
+            <h2>VER MÁS</h2>
+          </Link> 
         </div>
       </StyledHomePage>
-      <ItemListContainer />
+      
     </>
   );
 };
