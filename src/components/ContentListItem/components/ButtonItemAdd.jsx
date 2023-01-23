@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { cartContexto } from "../../../context/CartContext";
 
 const StyledButton = styled.button`
   border-radius: ${(props) => props.borderRadiusProp};
@@ -21,19 +23,22 @@ const StyledButton = styled.button`
 `;
 
 const ButtonItemAdd = ({ borderRadiusProp, product }) => {
+  const { addItem } = useContext(cartContexto);
+
   let navigate = useNavigate();
 
-  const productSendToCart = () => {
-    console.log("product:", product);
+  const onAddToCart = () => {
+    addItem(product);
+    setTimeout(() => {
+      alert(`Agregaste al carrito un ${product.nameProduct}`);
+      navigate(-1);
+    }, 2500);
   };
 
   return (
     <>
-      <StyledButton
-        borderRadiusProp={borderRadiusProp}
-        onClick={productSendToCart}
-      >
-        <div onClick={() => navigate(-1)}>Añadir al carrito</div>
+      <StyledButton borderRadiusProp={borderRadiusProp} onClick={onAddToCart}>
+        Añadir al carrito
       </StyledButton>
     </>
   );

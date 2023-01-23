@@ -90,7 +90,6 @@ const NavBar = () => {
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <Link to="/cart">
-          {" "}
           <CartWidget />
         </Link>
         <BackColorComponent propClicked={click} handleClickFunc={handleClick} />

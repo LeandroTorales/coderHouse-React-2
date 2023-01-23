@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { cartContexto } from "../../context/CartContext";
 
 const StyledCount = styled.div`
   display: flex;
@@ -26,7 +27,10 @@ const ItemCount = ({ stock }) => {
 
   const [stockState, setStockState] = useState(propStock);
 
+  const { addCounterItem } = useContext(cartContexto);
+
   const restaStock = () => setStockState(stockState - 1);
+
   const sumarStock = () => setStockState(stockState + 1);
 
   const handleClick = (operation) => {
@@ -38,6 +42,10 @@ const ItemCount = ({ stock }) => {
   useEffect(() => {
     setStockState(1);
   }, [propStock]);
+
+  useEffect(() => {
+    addCounterItem(stockState);
+  }, [stockState]);
 
   return (
     <>
