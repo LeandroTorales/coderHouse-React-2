@@ -8,7 +8,6 @@ const ItemListContainer = () => {
 
   let { categoryId } = useParams();
 
-
   const getItems = async () => {
     if (categoryId == undefined) {
       let respuesta = await getPromiseItems();

@@ -1,7 +1,9 @@
 /* Aca icono de carrito con numero de productos en forma de notificacion absolute hardcodeado */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import styled from "styled-components";
+import { cartContexto } from "../../../context/CartContext";
 import "../styles.css";
 
 const StyledNotificationCart = styled.span`
@@ -40,11 +42,19 @@ const StyledButtonCart = styled.button`
 `;
 
 const CartWidget = () => {
+  const [itemsCart, setItemsCart] = useState(0);
+
+  const { getTotalItemsOfCart, cart } = useContext(cartContexto);
+
+  useEffect(() => {
+    return setItemsCart(getTotalItemsOfCart());
+  }, [cart]);
+
   return (
     <>
       <StyledButtonCart>
         <TiShoppingCart className={`cart__icon`} />
-        <StyledNotificationCart>10</StyledNotificationCart>
+        <StyledNotificationCart>{itemsCart}</StyledNotificationCart>
       </StyledButtonCart>
     </>
   );

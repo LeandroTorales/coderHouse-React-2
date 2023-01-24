@@ -5,6 +5,12 @@ import FlexWrapper from "../../flexWrapper/FlexWrapper";
 import { getPromiseSingleItem } from "../promiseObject/promise";
 
 const StyledWrapperColorDetail = styled.div`
+  width: 100%;
+  margin-left: ${(props) => props.marginLeftProp};
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
   h3 {
     font-size: 1.3rem;
     font-weight: 400;
@@ -14,7 +20,7 @@ const StyledWrapperColorDetail = styled.div`
   }
 `;
 
-const WrapperColorDetail = ({ id }) => {
+const WrapperColorDetail = ({ id, marginLeftProp }) => {
   const [colorsState, setColors] = useState([]);
 
   const getItem = async () => {
@@ -27,7 +33,7 @@ const WrapperColorDetail = ({ id }) => {
   }, [id]);
 
   return (
-    <StyledWrapperColorDetail>
+    <StyledWrapperColorDetail marginLeftProp={marginLeftProp}>
       <h3>Colores</h3>
       <FlexWrapper gapProp={"5px"}>
         {colorsState.map((color) => (

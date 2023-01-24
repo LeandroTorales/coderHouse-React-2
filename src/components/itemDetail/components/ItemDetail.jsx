@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
 import "../styles.css";
-import ItemCount from "../../ContentListItem/components/ItemCount";
+import ItemCount from "../../itemCounter/ItemCount";
 import WrapperTallesDetail from "./WrapperTallesDetail";
 import WrapperColorDetail from "./WrapperColorDetail";
 import ItemDescriptionDetail from "./ItemDescriptionDetail";
@@ -23,10 +23,10 @@ const StyledCardDetail = styled.div`
   -webkit-box-shadow: -15px 14px 3px 6px rgba(196, 196, 196, 1);
   -moz-box-shadow: -15px 14px 3px 6px rgba(196, 196, 196, 1);
   @media (max-width: 768px) {
-    height: 95%;
+    height: 98%;
     width: 90%;
-    div:first-of-type {
-      gap: 2px;
+
+    div:first-child {
     }
   }
 
@@ -49,22 +49,24 @@ const StyledCardDetail = styled.div`
     }
   }
   > div {
-    width: 100%;
-    justify-content: space-evenly;
     height: calc(100% - 50px);
     @media (max-width: 768px) {
       gap: 10px;
     }
-    > div:last-of-type {
-      align-items: flex-start;
+
+    .imgDivContainer {
+      width: 50%;
+      @media (max-width: 768px) {
+        width: 75%;
+      }
     }
     div img {
-      height: auto;
-      width: 300px;
+      height: 200px;
+      width: 200px;
       object-fit: contain;
       border: 1px solid black;
       @media (max-width: 425px) {
-        width: 215px;
+        width: 95%;
       }
     }
   }
@@ -75,10 +77,9 @@ const ItemDetail = ({
   imgUrl,
   nameProduct,
   price,
-  sizes,
-  colors,
   stock = 0,
   textDescription,
+  product,
 }) => {
   return (
     <>
@@ -90,7 +91,11 @@ const ItemDetail = ({
       >
         <StyledCardDetail>
           <FlexWrapper wrapProp={"wrap"} flexDirectionProp={"row-reverse"}>
-            <FlexWrapper flexDirectionProp={"column"} gapProp={"15px"}>
+            <FlexWrapper
+              flexDirectionProp={"column"}
+              gapProp={"15px"}
+              widthProp=" 50%"
+            >
               <FlexWrapper gapProp={"15px"}>
                 <FlexWrapper flexDirectionProp={"column"}>
                   <p className="name--product">{nameProduct}</p>
@@ -102,17 +107,28 @@ const ItemDetail = ({
                 textDescription={textDescription}
               ></ItemDescriptionDetail>
             </FlexWrapper>
-            <FlexWrapper
-              flexDirectionProp={"column"}
-              gapProp={"15px"}
-              alignItemsProp={"flex-start"}
-            >
-              <img src={imgUrl} alt="" />
-              <WrapperTallesDetail id={id}></WrapperTallesDetail>
-              <WrapperColorDetail id={id}></WrapperColorDetail>
-            </FlexWrapper>
+            <div className="imgDivContainer">
+              <FlexWrapper
+                flexDirectionProp={"column"}
+                gapProp={"5px"}
+                alignItemsProp={"flex-start"}
+              >
+                <img src={imgUrl} alt="" />
+                <WrapperTallesDetail
+                  id={id}
+                  marginLeftProp="2rem"
+                ></WrapperTallesDetail>
+                <WrapperColorDetail
+                  id={id}
+                  marginLeftProp="2rem"
+                ></WrapperColorDetail>
+              </FlexWrapper>
+            </div>
           </FlexWrapper>
-          <ButtonItemAdd borderRadiusProp={"0px 0px 25px 25px;"} />
+          <ButtonItemAdd
+            borderRadiusProp={"0px 0px 25px 25px;"}
+            product={product}
+          />
         </StyledCardDetail>
       </FlexWrapper>
     </>

@@ -5,6 +5,12 @@ import { getPromiseSingleItem } from "../promiseObject/promise";
 import TallesMapDiv from "./TallesMapDiv";
 
 const StyledWrapperTallesDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-left: ${(props) => props.marginLeftProp};
   h3 {
     font-size: 1.3rem;
     font-weight: 400;
@@ -17,7 +23,7 @@ const StyledWrapperTallesDetail = styled.div`
   }
 `;
 
-const WrapperTallesDetail = ({ id }) => {
+const WrapperTallesDetail = ({ id, marginLeftProp }) => {
   const [sizes, setSizes] = useState([]);
 
   const getItem = async () => {
@@ -31,7 +37,7 @@ const WrapperTallesDetail = ({ id }) => {
 
   return (
     <>
-      <StyledWrapperTallesDetail>
+      <StyledWrapperTallesDetail marginLeftProp={marginLeftProp}>
         <h3>Talles</h3>
         <FlexWrapper gapProp={"5px"}>
           {sizes.map((size) => (

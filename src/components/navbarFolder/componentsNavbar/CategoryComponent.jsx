@@ -25,13 +25,32 @@ const StyledCategory = styled.div`
   }
 `;
 
-const CategoryComponent = ({ NameCategory }) => {
+const StyledDivQuery = styled.div`
+  @media (max-width: 768px) {
+    div:last-child {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    div:first-child {
+      display: none;
+    }
+  }
+`;
+
+const CategoryComponent = ({ NameCategory, handleClickFunc }) => {
   return (
     <>
-      <StyledCategory>
-        {NameCategory}
-        {/* <Link to={hrefLink}>{children}fafafa</Link> */}
-      </StyledCategory>
+      <StyledDivQuery>
+        <StyledCategory onClick={() => handleClickFunc()}>
+          {NameCategory}
+        </StyledCategory>
+        <StyledCategory>
+          {NameCategory}
+          {/* Link desktop */}
+        </StyledCategory>
+      </StyledDivQuery>
     </>
   );
 };

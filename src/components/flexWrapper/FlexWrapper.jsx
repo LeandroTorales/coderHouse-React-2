@@ -11,6 +11,7 @@ const StyledWrapper = styled.div`
   gap: ${(props) => props.gapProp};
   height: ${(props) => props.heightProp};
   background-color: ${(props) => props.backgroundColorProps};
+  margin-top: ${(props) => props.marginTopProps};
 `;
 
 const FlexWrapper = ({
@@ -21,6 +22,7 @@ const FlexWrapper = ({
   widthProp,
   heightProp,
   backgroundColorProps,
+  marginTopProps,
 }) => {
   return (
     <StyledWrapper
@@ -30,6 +32,7 @@ const FlexWrapper = ({
       widthProp={widthProp}
       heightProp={heightProp}
       backgroundColorProps={backgroundColorProps}
+      marginTopProps={marginTopProps}
     >
       {children}
     </StyledWrapper>

@@ -9,7 +9,6 @@ const StyledButtonVerDetalle = styled.button`
   text-transform: uppercase;
   font-weight: bold;
   border: none;
-  border-bottom: 1px solid #000000;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
@@ -18,8 +17,6 @@ const StyledButtonVerDetalle = styled.button`
     color: white;
 
     font-size: 1.2rem;
-
-    border-bottom: 1px solid #ffffff;
   }
 `;
 
