@@ -19,7 +19,7 @@ const CartContext = ({ children }) => {
   };
 
   const getTotalItemsOfCart = () => {
-    if (!cart.length || cart.length === 0) return;
+    if (!cart.length || cart.length == 0) return;
 
     let arrMapCounter = [];
     console.log("arrMapCounter:", arrMapCounter);
@@ -30,14 +30,14 @@ const CartContext = ({ children }) => {
     return arrMapCounter.reduce((a, b) => a + b, 0);
   };
 
- /*    const removeItemCart = () => {
+    const removeItemCart = () => {
 
     };
 
     const clearCart = () => {
         setCart([]);
         setCounter(0);
-    }; */
+    };
     
   const value = { cart, addItem, addCounterItem, getTotalItemsOfCart };
 
