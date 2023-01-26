@@ -6,18 +6,22 @@ export const cartContexto = createContext();
 
 const CartContext = ({ children }) => {
   const [cart, setCart] = useState([]);
-  console.log("cart:", cart);
-
+  
+  /* Contador del carrito */
   const [counter, setCounter] = useState(0);
 
+  /* SetCounter con la cantidad de productos en el carrito, bubble */
   const addCounterItem = (number) => {
     setCounter(number);
   };
 
+
+  /* Button addToCart */
   const addItem = (item) => {
     setCart([...cart, { ...item, counter: counter }]);
   };
 
+  /* Se ocupa de reducir a un numero la cantidad de productos */
   const getTotalItemsOfCart = () => {
     if (!cart.length || cart.length == 0) return;
 
