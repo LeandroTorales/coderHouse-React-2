@@ -11,7 +11,9 @@ const StyledItemCardCart = styled.div`
   width: 75%;
   height: 200px;
   gap: 10px;
-  margin: 7px 0px;border: 1px solid black;padding-right: 25px;
+  margin: 7px 0px;
+  border: 1px solid black;
+  padding-right: 25px;
   @media (max-width: 1121px) {
     width: 100%;
     padding: 0px 25px;
@@ -21,7 +23,7 @@ const StyledItemCardCart = styled.div`
       padding: 15px 0px;
       margin: 15px 0px;
       width: 300px;
- 
+
       border-radius: 5px;
     }
   }
@@ -70,11 +72,11 @@ const CartItemCard = ({ id, imgUrl, nameProduct, price, stock, product }) => {
           <img src={imgUrl} alt="img-product-cart" />
         </div>
 
-        <h2>{nameProduct}gaegagaegaegag</h2>
+        <h2>{nameProduct}</h2>
         <FlexWrapper flexDirectionProp={"column"} gapProp={"10px"}>
           <ItemCount stock={stock} />
           <span className="disponible-container">
-            <span>{stock}</span> disponibles
+            <span>{stock}</span>disponibles
           </span>
         </FlexWrapper>
 
