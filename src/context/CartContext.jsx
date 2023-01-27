@@ -6,7 +6,7 @@ export const cartContexto = createContext();
 
 const CartContext = ({ children }) => {
   const [cart, setCart] = useState([]);
-  
+
   /* Contador del carrito */
   const [counter, setCounter] = useState(0);
 
@@ -14,7 +14,6 @@ const CartContext = ({ children }) => {
   const addCounterItem = (number) => {
     setCounter(number);
   };
-
 
   /* Button addToCart */
   const addItem = (item) => {
@@ -34,15 +33,13 @@ const CartContext = ({ children }) => {
     return arrMapCounter.reduce((a, b) => a + b, 0);
   };
 
-    const removeItemCart = () => {
+  const removeItemCart = () => {};
 
-    };
+  const clearCart = () => {
+    setCart([]);
+    setCounter(0);
+  };
 
-    const clearCart = () => {
-        setCart([]);
-        setCounter(0);
-    };
-    
   const value = { cart, addItem, addCounterItem, getTotalItemsOfCart };
 
   return (

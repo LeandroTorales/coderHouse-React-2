@@ -21,17 +21,17 @@ const StyledButton = styled.button`
     font-size: 1.4rem;
     background-color: #01d2d2;
   }
-  &.active{
+  &.active {
     cursor: not-allowed;
-  background-color: #000000;
-  color: white;
+    background-color: #000000;
+    color: white;
   }
 `;
 
 const ButtonItemAdd = ({ borderRadiusProp, product }) => {
   const { addItem } = useContext(cartContexto);
 
-  const [disabledButtonState, setDisabledButton]= useState(true)
+  const [disabledButtonState, setDisabledButton] = useState(true);
 
   let navigate = useNavigate();
 
@@ -40,14 +40,18 @@ const ButtonItemAdd = ({ borderRadiusProp, product }) => {
     setDisabledButton(false);
     setTimeout(() => {
       alert(`Agregaste al carrito: ${product.nameProduct}`);
-        setDisabledButton(true);
-        navigate(-1);
+      setDisabledButton(true);
+      navigate(-1);
     }, 2500);
   };
 
   return (
     <>
-      <StyledButton borderRadiusProp={borderRadiusProp} className={`${disabledButtonState ? "" : "active"}`} onClick={disabledButtonState ? onAddToCart : null}>
+      <StyledButton
+        borderRadiusProp={borderRadiusProp}
+        className={`${disabledButtonState ? "" : "active"}`}
+        onClick={disabledButtonState ? onAddToCart : null}
+      >
         Añadir al carrito
       </StyledButton>
     </>

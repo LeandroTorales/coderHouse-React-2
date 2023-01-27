@@ -21,8 +21,8 @@ const StyledNotificationCart = styled.span`
   position: absolute;
   margin-bottom: 25px;
   margin-left: 30px;
-  &.active{
-display: none;
+  &.active {
+    display: none;
   }
 `;
 
@@ -42,22 +42,24 @@ const CartWidget = () => {
   const [itemsCart, setItemsCart] = useState(0);
 
   const { getTotalItemsOfCart, cart } = useContext(cartContexto);
-  
+
   const verifItemsCart = () => {
-    if (itemsCart == 0) return "active"
-    return "";  
-}
+    if (itemsCart == 0) return "active";
+    return "";
+  };
 
   useEffect(() => {
     if (cart.length == 0) return;
-    return setItemsCart(getTotalItemsOfCart())
+    return setItemsCart(getTotalItemsOfCart());
   }, [cart]);
 
   return (
     <>
       <StyledButtonCart>
         <TiShoppingCart className={`cart__icon`} />
-        <StyledNotificationCart className={verifItemsCart()}>{itemsCart}</StyledNotificationCart>
+        <StyledNotificationCart className={verifItemsCart()}>
+          {itemsCart}
+        </StyledNotificationCart>
       </StyledButtonCart>
     </>
   );
