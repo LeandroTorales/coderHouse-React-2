@@ -17,6 +17,10 @@ const StyledCartItems = styled.div`
   padding-top: 2rem;
 `;
 
+const StyledCartResume = styled.div`
+
+`
+
 const CartDetailContainer = () => {
   const { cart, addItem, addCounterItem, getTotalItemsOfCart } =
     useContext(cartContexto);
@@ -35,7 +39,9 @@ const CartDetailContainer = () => {
             product={item.product}
           />
         ))}
+        <StyledCartResume>fdiajkfij</StyledCartResume>
       </StyledCartItems>
+   
     </>
   );
 };
