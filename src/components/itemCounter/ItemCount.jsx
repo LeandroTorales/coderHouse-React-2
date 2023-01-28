@@ -22,7 +22,7 @@ const StyledCount = styled.div`
   }
 `;
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, counter, id, product }) => {
   const propStock = Number(stock);
 
   const [stockState, setStockState] = useState(propStock);
@@ -30,8 +30,9 @@ const ItemCount = ({ stock }) => {
   const { addCounterItem } = useContext(cartContexto);
 
   const restaStock = () => setStockState(stockState - 1);
+  
+  const sumarStock = () =>  setStockState(stockState + 1)
 
-  const sumarStock = () => setStockState(stockState + 1);
 
   const handleClick = (operation) => {
     if (stockState === 1 && operation === restaStock) return;
@@ -41,11 +42,18 @@ const ItemCount = ({ stock }) => {
 
   useEffect(() => {
     setStockState(1);
-  }, [propStock]);
+  }, []);
+
+  useEffect(() => {
+    if (counter != undefined) {
+      return setStockState(counter);
+    }
+  }, []);
 
   useEffect(() => {
     addCounterItem(stockState);
   }, [stockState]);
+
 
   return (
     <>

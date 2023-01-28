@@ -64,19 +64,26 @@ const StyledItemCardCart = styled.div`
   }
 `;
 
-const CartItemCard = ({ id, imgUrl, nameProduct, price, stock, product }) => {
+const CartItemCard = ({
+  id,
+  imgUrl,
+  nameProduct,
+  price,
+  stock,
+  counter,
+  product,
+}) => {
   return (
     <>
       <StyledItemCardCart>
         <div className="img-container">
           <img src={imgUrl} alt="img-product-cart" />
         </div>
-
         <h2>{nameProduct}</h2>
         <FlexWrapper flexDirectionProp={"column"} gapProp={"10px"}>
-          <ItemCount stock={stock} />
+          <ItemCount counter={counter} stock={stock} id={id} product={product} />
           <span className="disponible-container">
-            <span>{stock}</span>disponibles
+            <span>{stock}</span>Disponibles
           </span>
         </FlexWrapper>
 
