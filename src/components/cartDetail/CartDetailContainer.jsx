@@ -18,7 +18,7 @@ const StyledCartItems = styled.div`
   h2 {
     text-transform: uppercase;
   }
-  .clear--cart__button{
+  .clear--cart__button {
     position: absolute;
     background: #eb3131;
     color: white;
@@ -118,7 +118,9 @@ const CartDetailContainer = () => {
     <>
       {cart.length !== 0 ? (
         <StyledCartItems>
-         <button className="clear--cart__button" onClick={()=>clearCart()}>Limpiar carrito</button>
+          <button className="clear--cart__button" onClick={() => clearCart()}>
+            Limpiar carrito
+          </button>
           {cart.map((item) => (
             <CartItemCard
               key={item.id}
@@ -129,7 +131,7 @@ const CartDetailContainer = () => {
               counter={item.counter}
               stock={item.stock}
               product={item.product}
-              removeItemCart = {removeItemCart}
+              removeItemCart={removeItemCart}
             />
           ))}
           <StyledCartResume>

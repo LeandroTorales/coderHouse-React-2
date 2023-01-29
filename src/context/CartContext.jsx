@@ -6,7 +6,7 @@ export const cartContexto = createContext();
 
 const CartContext = ({ children }) => {
   const [cart, setCart] = useState([]);
-  console.log('cartContext:', cart)
+  console.log("cartContext:", cart);
 
   const [counter, setCounter] = useState(0);
 
@@ -33,15 +33,21 @@ const CartContext = ({ children }) => {
     const filterCart = setCart(cart.filter((item) => item.id !== id));
 
     return filterCart;
-};
+  };
 
   const clearCart = () => {
     setCart([]);
     setCounter(0);
-   
   };
 
-  const value = { cart, addItem, addCounterItem, getTotalItemsOfCart, removeItemCart, clearCart};
+  const value = {
+    cart,
+    addItem,
+    addCounterItem,
+    getTotalItemsOfCart,
+    removeItemCart,
+    clearCart,
+  };
 
   return (
     <>

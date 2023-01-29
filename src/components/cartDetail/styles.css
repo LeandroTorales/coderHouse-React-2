@@ -13,7 +13,6 @@
   cursor: pointer;
 }
 
-
 .container--product {
   margin: 7px 10px;
   width: 80%;
@@ -22,6 +21,8 @@
 @media (max-width: 768px) {
   .x--eliminate__product {
     margin: 0px 0px -15px -8px;
-  }.container--product {
-  width: 300px;
-}}
+  }
+  .container--product {
+    width: 300px;
+  }
+}
