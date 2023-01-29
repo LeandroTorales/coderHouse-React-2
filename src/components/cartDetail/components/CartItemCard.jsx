@@ -1,32 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import FlexWrapper from "../../flexWrapper/FlexWrapper";
-import ItemCount from "../../itemCounter/ItemCount";
+
+import "../styles.css"
+
 
 const StyledItemCardCart = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  width: 75%;
+ width: 100%;
   height: 200px;
-  gap: 10px;
-  margin: 7px 0px;
+  gap: 5px;
   border: 1px solid black;
-  padding-right: 25px;
-  @media (max-width: 1121px) {
-    width: 100%;
-    padding: 0px 25px;
+ 
+
     @media (max-width: 768px) {
       height: 450px;
       flex-direction: column;
-      padding: 15px 0px;
+      padding: 35px 2px 5px 2px;
       margin: 15px 0px;
-      width: 300px;
-
       border-radius: 5px;
-    }
+      .container-cantidad-productos {
+        width: 100%;
+        padding: 0px 5px;
+      }
+    
   }
+
 
   .img-container {
     height: 200px;
@@ -41,12 +43,17 @@ const StyledItemCardCart = styled.div`
 
   h2 {
     display: flex;
-    height: 100%;
+
     width: 45%;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-size: 1rem;
+  }
+
+  .productos-seleccionados {
+    text-align: center;
+    font-size: 1.2rem;
   }
 
   .disponible-container {
@@ -62,6 +69,18 @@ const StyledItemCardCart = styled.div`
     font-weight: bolder;
     color: #a30202;
   }
+
+
+`;
+
+const StyledLineDivisory = styled.div`
+  height: 100%;
+  width: 2px;
+  background-color: #e2e2e2;
+  @media (max-width: 768px) {
+    height: 2px;
+    width: 100%;
+  }
 `;
 
 const CartItemCard = ({
@@ -72,23 +91,39 @@ const CartItemCard = ({
   stock,
   counter,
   product,
+  removeItemCart
 }) => {
   return (
     <>
+      <div className="container--product">
+      <div className="x--eliminate__product">
+        <button onClick={() => removeItemCart(id)}>X</button>
+      </div>
       <StyledItemCardCart>
         <div className="img-container">
           <img src={imgUrl} alt="img-product-cart" />
         </div>
+        <StyledLineDivisory />
         <h2>{nameProduct}</h2>
-        <FlexWrapper flexDirectionProp={"column"} gapProp={"10px"}>
-          <ItemCount counter={counter} stock={stock} id={id} product={product} />
+        <StyledLineDivisory />
+        <FlexWrapper
+          flexDirectionProp={"column"}
+          gapProp={"10px"}
+          heightProp={"100%"}
+          widthProp={"30%"}
+          classNameProp={"container-cantidad-productos"}
+        >
+          <span className="productos-seleccionados">
+            Cantidad de productos seleccionados: {counter}
+          </span>
           <span className="disponible-container">
             <span>{stock}</span>Disponibles
           </span>
         </FlexWrapper>
-
+        <StyledLineDivisory />
         <span className="price-container">${price}</span>
-      </StyledItemCardCart>
+        </StyledItemCardCart>
+      </div>
     </>
   );
 };

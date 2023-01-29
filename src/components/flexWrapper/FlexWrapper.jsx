@@ -23,6 +23,7 @@ const FlexWrapper = ({
   heightProp,
   backgroundColorProps,
   marginTopProps,
+  classNameProp,
 }) => {
   return (
     <StyledWrapper
@@ -33,6 +34,7 @@ const FlexWrapper = ({
       heightProp={heightProp}
       backgroundColorProps={backgroundColorProps}
       marginTopProps={marginTopProps}
+      className={classNameProp}
     >
       {children}
     </StyledWrapper>

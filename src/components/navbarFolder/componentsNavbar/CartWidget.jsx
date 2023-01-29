@@ -49,7 +49,8 @@ const CartWidget = () => {
   };
 
   useEffect(() => {
-    if (cart.length == 0) return;
+    if (cart.length == 0) return setItemsCart(0)
+      
     return setItemsCart(getTotalItemsOfCart());
   }, [cart]);
 

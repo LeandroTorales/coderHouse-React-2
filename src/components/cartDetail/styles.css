@@ -1,0 +1,27 @@
+.x--eliminate__product {
+  width: 100%;
+  height: 0px;
+
+  text-align: right;
+  margin: 0px 8px 0px -8px;
+}
+
+.x--eliminate__product button {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+.container--product {
+  margin: 7px 10px;
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .x--eliminate__product {
+    margin: 0px 0px -15px -8px;
+  }.container--product {
+  width: 300px;
+}}
