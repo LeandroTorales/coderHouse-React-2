@@ -21,7 +21,7 @@ const CartContext = ({ children }) => {
 
   /* Se ocupa de reducir a un numero la cantidad de productos */
   const getTotalItemsOfCart = () => {
-    if (!cart.length || cart.length == 0) return;
+    if (!cart.length || cart.length === 0) return;
     let arrMapCounter = [];
     const mapCartCounter = () =>
       cart.map((item) => arrMapCounter.push(item.counter));
@@ -31,7 +31,6 @@ const CartContext = ({ children }) => {
 
   const removeItemCart = (id) => {
     const filterCart = setCart(cart.filter((item) => item.id !== id));
-
     return filterCart;
   };
 

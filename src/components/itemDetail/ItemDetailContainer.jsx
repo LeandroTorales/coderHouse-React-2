@@ -7,7 +7,6 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
 
   let { id } = useParams();
-  console.log("id:", id);
 
   const getItem = async () => {
     let respuesta = await getPromiseSingleItem(id);

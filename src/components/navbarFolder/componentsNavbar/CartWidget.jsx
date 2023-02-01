@@ -44,12 +44,12 @@ const CartWidget = () => {
   const { getTotalItemsOfCart, cart } = useContext(cartContexto);
 
   const verifItemsCart = () => {
-    if (itemsCart == 0) return "active";
+    if (itemsCart === 0) return "active";
     return "";
   };
 
   useEffect(() => {
-    if (cart.length == 0) return setItemsCart(0);
+    if (cart.length === 0) return setItemsCart(0);
 
     return setItemsCart(getTotalItemsOfCart());
   }, [cart]);
