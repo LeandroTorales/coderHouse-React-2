@@ -1,7 +1,5 @@
-import { collection, doc, getDocs, query, where } from "firebase/firestore";
-import { db } from "../dataObjects/firebase";
-
-const productsCollection = collection(db, "products");
+import { getDocs, query, where } from "firebase/firestore";
+import { productsCollection } from "../dataObjects/firebase";
 
 export const getPromiseItems = async () => {
   const querySnapshot = await getDocs(productsCollection);

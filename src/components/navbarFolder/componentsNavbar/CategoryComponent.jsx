@@ -18,7 +18,7 @@ const StyledCategory = styled.div`
     font-size: 1.2rem;
   }
   @media (max-width: 900px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   @media (max-width: 768px) {
     font-size: 1.5rem;

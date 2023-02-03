@@ -49,7 +49,7 @@ const ButtonItemAdd = ({ borderRadiusProp, product }) => {
     <>
       <StyledButton
         borderRadiusProp={borderRadiusProp}
-        className={`${disabledButtonState ? "" : "active"}`}
+        className={` ${disabledButtonState ? "" : "active"}`}
         onClick={disabledButtonState ? onAddToCart : null}
       >
         Añadir al carrito

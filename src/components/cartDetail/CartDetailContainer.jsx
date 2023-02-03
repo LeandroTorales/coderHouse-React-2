@@ -1,8 +1,10 @@
+import { addDoc } from "firebase/firestore";
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { cartContexto } from "../../context/CartContext";
+import { orderCollection } from "../dataObjects/firebase";
 import CartItemCard from "./components/CartItemCard";
 
 const StyledCartItems = styled.div`
@@ -30,6 +32,7 @@ const StyledCartItems = styled.div`
     border: none;
     text-transform: uppercase;
     font-size: 1.2rem;
+    cursor: pointer;
   }
 `;
 
@@ -103,8 +106,44 @@ const StyledRedirectOnEmptyCart = styled.div`
 `;
 
 const CartDetailContainer = () => {
-  const { cart, removeItemCart, clearCart } = useContext(cartContexto);
-  console.log("cart:", cart);
+  const { cart, removeItemCart, clearCart, setOrderIdState, orderIdState } = useContext(cartContexto);
+  console.log('orderIdState:', orderIdState)
+
+
+  const navigate = useNavigate();
+
+  const handleCheckout = async () => {
+    const cartModificate = () =>
+      cart.map((product) => ({
+        id: product.id,
+        nameProduct: product.nameProduct,
+        price: product.price,
+        counter: product.counter,
+      }));
+
+    const order = {
+      buyer: {
+        name: "",
+        email: "",
+        phone: 1,
+      },
+      items: cartModificate(),
+      date: new Date(),
+      total: reduceTotalPrice(),
+    };
+
+    const createBuyOrder = async () => {
+      const orderDocumentNew = await addDoc(orderCollection, order);
+      console.log("orderDocumentNew:", orderDocumentNew);
+      setOrderIdState(orderDocumentNew.id);
+      navigate(`/purchase/${orderDocumentNew.id}`);
+      return orderDocumentNew;
+    };
+
+    createBuyOrder();
+
+    /*   clearCart(); */
+  };
 
   const reduceTotalPrice = () => {
     let arrMapCounter = [];
@@ -138,7 +177,7 @@ const CartDetailContainer = () => {
             <div>
               Total <span>${reduceTotalPrice().toFixed(2)}</span>
             </div>
-            <button>Comprar carrito</button>
+            <button onClick={handleCheckout}>Comprar carrito</button>
           </StyledCartResume>
         </StyledCartItems>
       ) : (

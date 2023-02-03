@@ -8,6 +8,8 @@ import PreguntasFrecuentesContainer from "./components/preguntasFrecuentes/Pregu
 import ContactoContainer from "./components/contacto/ContactoContainer";
 import HomePage from "./pages/HomePage";
 import CartContext from "./context/CartContext";
+import OrderDetailContainer from "./components/orderDetail/OrderDetailContainer";
+import OrdersContainer from "./components/ordersPedidos/OrdersContainer";
 
 function App() {
   return (
@@ -18,17 +20,13 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/contacto" element={<ContactoContainer />} />
-            <Route
-              path="/preguntasFrecuentes"
-              element={<PreguntasFrecuentesContainer />}
-            />
+            <Route path="/preguntasFrecuentes" element={<PreguntasFrecuentesContainer />} />
             <Route path="/cart" element={<CartDetailContainer />} />
             <Route path="/products" element={<ItemListContainer />} />
-            <Route
-              path="/products/:categoryId"
-              element={<ItemListContainer />}
-            />
+            <Route path="/products/:categoryId" element={<ItemListContainer />} />
             <Route path="/product/:id" element={<ItemDetailContainer />} />
+            <Route path="/purchase/:orderId" element={<OrderDetailContainer />} />
+            <Route path="/orders" element={<OrdersContainer />} />
           </Routes>
         </BrowserRouter>
       </CartContext>

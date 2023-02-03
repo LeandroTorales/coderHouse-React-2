@@ -6,10 +6,10 @@ export const cartContexto = createContext();
 
 const CartContext = ({ children }) => {
   const [cart, setCart] = useState([]);
-  console.log("cartContext:", cart);
-
+  const [orderIdState, setOrderIdState] = useState(undefined);
   const [counter, setCounter] = useState(0);
-
+  const [purchaseProducts, setPurchaseProducts] = useState([]);
+const [getOrder, setGetOrder] = useState(undefined);
   const addCounterItem = (number) => {
     setCounter(number);
   };
@@ -37,6 +37,7 @@ const CartContext = ({ children }) => {
   const clearCart = () => {
     setCart([]);
     setCounter(0);
+    setOrderIdState(undefined)
   };
 
   const value = {
@@ -46,6 +47,10 @@ const CartContext = ({ children }) => {
     getTotalItemsOfCart,
     removeItemCart,
     clearCart,
+    setOrderIdState,
+    orderIdState,
+    setPurchaseProducts,
+    purchaseProducts,getOrder, setGetOrder
   };
 
   return (

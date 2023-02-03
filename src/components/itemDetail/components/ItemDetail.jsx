@@ -7,6 +7,7 @@ import WrapperTallesDetail from "./WrapperTallesDetail";
 import WrapperColorDetail from "./WrapperColorDetail";
 import ItemDescriptionDetail from "./ItemDescriptionDetail";
 import ButtonItemAdd from "../../ContentListItem/components/ButtonItemAdd";
+import { SpinnerCircular } from "spinners-react";
 
 const StyledCardDetail = styled.div`
   background-color: #ffffff;
@@ -83,54 +84,61 @@ const ItemDetail = ({
 }) => {
   return (
     <>
-      <FlexWrapper
-        widthProp="100%"
-        heightProp="calc(100vh - 90px)"
-        backgroundColorProps="white"
-        flexDirectionProp={"row"}
-      >
-        <StyledCardDetail>
-          <FlexWrapper wrapProp={"wrap"} flexDirectionProp={"row-reverse"}>
-            <FlexWrapper
-              flexDirectionProp={"column"}
-              gapProp={"15px"}
-              widthProp=" 50%"
-            >
-              <FlexWrapper gapProp={"15px"}>
-                <FlexWrapper flexDirectionProp={"column"}>
-                  <p className="name--product">{nameProduct}</p>
-                  <span>{`$${price}`}</span>
-                </FlexWrapper>
-                <ItemCount stock={stock} />
-              </FlexWrapper>
-              <ItemDescriptionDetail
-                textDescription={textDescription}
-              ></ItemDescriptionDetail>
-            </FlexWrapper>
-            <div className="imgDivContainer">
+      {product.length == 0 ? (
+        <div className="spinner-container">
+          <SpinnerCircular size={100} />
+          <h2>Cargando...</h2>
+        </div>
+      ) : (
+        <FlexWrapper
+          widthProp="100%"
+          heightProp="calc(100vh - 90px)"
+          backgroundColorProps="white"
+          flexDirectionProp={"row"}
+        >
+          <StyledCardDetail>
+            <FlexWrapper wrapProp={"wrap"} flexDirectionProp={"row-reverse"}>
               <FlexWrapper
                 flexDirectionProp={"column"}
-                gapProp={"5px"}
-                alignItemsProp={"flex-start"}
+                gapProp={"15px"}
+                widthProp=" 50%"
               >
-                <img src={imgUrl} alt="" />
-                <WrapperTallesDetail
-                  id={id}
-                  marginLeftProp="2rem"
-                ></WrapperTallesDetail>
-                <WrapperColorDetail
-                  id={id}
-                  marginLeftProp="2rem"
-                ></WrapperColorDetail>
+                <FlexWrapper gapProp={"15px"}>
+                  <FlexWrapper flexDirectionProp={"column"}>
+                    <p className="name--product">{nameProduct}</p>
+                    <span>{`$${price}`}</span>
+                  </FlexWrapper>
+                  <ItemCount stock={stock} />
+                </FlexWrapper>
+                <ItemDescriptionDetail
+                  textDescription={textDescription}
+                ></ItemDescriptionDetail>
               </FlexWrapper>
-            </div>
-          </FlexWrapper>
-          <ButtonItemAdd
-            borderRadiusProp={"0px 0px 25px 25px;"}
-            product={product}
-          />
-        </StyledCardDetail>
-      </FlexWrapper>
+              <div className="imgDivContainer">
+                <FlexWrapper
+                  flexDirectionProp={"column"}
+                  gapProp={"5px"}
+                  alignItemsProp={"flex-start"}
+                >
+                  <img src={imgUrl} alt="" />
+                  <WrapperTallesDetail
+                    id={id}
+                    marginLeftProp="2rem"
+                  ></WrapperTallesDetail>
+                  <WrapperColorDetail
+                    id={id}
+                    marginLeftProp="2rem"
+                  ></WrapperColorDetail>
+                </FlexWrapper>
+              </div>
+            </FlexWrapper>
+            <ButtonItemAdd
+              borderRadiusProp={"0px 0px 25px 25px;"}
+              product={product}
+            />
+          </StyledCardDetail>
+        </FlexWrapper>
+      )}
     </>
   );
 };

@@ -79,7 +79,6 @@ const NavBar = () => {
 
           <Link
             to="/preguntasFrecuentes"
-            element=""
             className="link--react__router"
           >
             <CategoryComponent
@@ -87,6 +86,17 @@ const NavBar = () => {
               key={"preguntas frecuentes"}
             />
           </Link>
+
+          <Link
+            to="/orders"
+            className="link--react__router"
+          >
+            <CategoryComponent
+              NameCategory="Mis compras"
+              key={"Mis compras"}
+            />
+          </Link>
+
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <Link to="/cart">

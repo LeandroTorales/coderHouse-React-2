@@ -5,7 +5,7 @@ const StyledTitle = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   text-align: center;
   color: white;
   text-transform: capitalize;
@@ -13,16 +13,15 @@ const StyledTitle = styled.h1`
   gap: 5px;
   color: #eeeeee;
   text-shadow: -3px -1px 2px #816f09;
-  font-size: 1.6rem;
   font-weight: 700;
   span {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   @media (max-width: 768px) {
     flex-direction: column;
-    font-size: 1.2rem;
+    font-size: 1rem;
     span {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
   }
 `;

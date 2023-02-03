@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getByCategoryItems, getPromiseItems } from "./promise";
 import ItemList from "./components/ItemList";
 import { useParams } from "react-router-dom";
+import { SpinnerCircular } from "spinners-react";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -24,7 +25,14 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <ItemList products={products} />
+      {products.length == 0 ? (
+        <div className="spinner-container">
+          <SpinnerCircular size={100} />
+          <h2>Cargando productos...</h2>
+        </div>
+      ) : (
+        <ItemList products={products} />
+      )}
     </>
   );
 };
