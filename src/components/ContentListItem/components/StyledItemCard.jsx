@@ -13,6 +13,7 @@ const StyledItemStyled = styled.div`
   text-shadow: 2px 2px 2px white;
   border: 3px solid black;
   margin-top: 10px;
+  margin-bottom: 10px;
   img {
     object-fit: cover;
     height: 305px;

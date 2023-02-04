@@ -73,15 +73,26 @@ const StyledCardDetail = styled.div`
   }
 `;
 
+const StyledOutOfStock = styled.p`
+font-weight: bold;
+font-size: 1.5rem;
+color: #f30000;
+text-shadow: 1px 1px 2px black;
+text-align: center;
+margin-bottom: 10px;
+`
+
 const ItemDetail = ({
   id,
   imgUrl,
   nameProduct,
   price,
-  stock = 0,
+  noStock = 0,
+  stockDinamic,
   textDescription,
   product,
 }) => {
+
   return (
     <>
       {product.length == 0 ? (
@@ -107,8 +118,10 @@ const ItemDetail = ({
                   <FlexWrapper flexDirectionProp={"column"}>
                     <p className="name--product">{nameProduct}</p>
                     <span>{`$${price}`}</span>
-                  </FlexWrapper>
-                  <ItemCount stock={stock} />
+                    </FlexWrapper>
+                    
+                    {stockDinamic == noStock ? ("") :(<ItemCount stock={stockDinamic} />)}
+                  
                 </FlexWrapper>
                 <ItemDescriptionDetail
                   textDescription={textDescription}
@@ -131,11 +144,13 @@ const ItemDetail = ({
                   ></WrapperColorDetail>
                 </FlexWrapper>
               </div>
-            </FlexWrapper>
-            <ButtonItemAdd
+              </FlexWrapper>
+              
+              {stockDinamic == 0 ? (<StyledOutOfStock>Este producto esta fuera de Stock.</StyledOutOfStock> ):(<ButtonItemAdd
               borderRadiusProp={"0px 0px 25px 25px;"}
               product={product}
-            />
+            />)}
+            
           </StyledCardDetail>
         </FlexWrapper>
       )}

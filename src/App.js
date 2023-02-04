@@ -10,10 +10,12 @@ import HomePage from "./pages/HomePage";
 import CartContext from "./context/CartContext";
 import OrderDetailContainer from "./components/orderDetail/OrderDetailContainer";
 import OrdersContainer from "./components/ordersPedidos/OrdersContainer";
+import { exportData } from "./components/dataObjects/firebase";
 
 function App() {
   return (
     <>
+ {/*  <button onClick={() => exportData()}>Export</button>  */}
       <CartContext>
         <BrowserRouter>
           <NavBar />

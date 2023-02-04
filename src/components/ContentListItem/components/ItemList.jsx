@@ -5,7 +5,7 @@ import Item from "./Item";
 const ItemList = ({ products }) => {
   return (
     <>
-      <FlexWrapper gapProp={"25px"} wrapProp={"wrap"}>
+      <FlexWrapper gapProp={"10px"} wrapProp={"wrap"}>
         {products.map((item) => (
           <Item
             product={item}

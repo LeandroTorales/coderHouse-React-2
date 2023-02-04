@@ -16,7 +16,18 @@ const [getOrder, setGetOrder] = useState(undefined);
 
   /* Button addToCart */
   const addItem = (item) => {
-    setCart([...cart, { ...item, counter: counter }]);
+    const productFind = cart.find((product) => product.index === item.index);
+
+    const index = cart.findIndex(elem => elem.index === item.index);
+    
+    if (productFind) {
+      let cartCopy = [...cart];
+      const objDelete= cartCopy.splice(index, 1, {...productFind, counter: counter + productFind.counter });
+      return setCart(cartCopy);
+    } else {
+      return setCart([...cart, { ...item, counter: counter }]);
+    }
+    
   };
 
   /* Se ocupa de reducir a un numero la cantidad de productos */
@@ -50,7 +61,9 @@ const [getOrder, setGetOrder] = useState(undefined);
     setOrderIdState,
     orderIdState,
     setPurchaseProducts,
-    purchaseProducts,getOrder, setGetOrder
+    purchaseProducts,
+    getOrder,
+    setGetOrder
   };
 
   return (

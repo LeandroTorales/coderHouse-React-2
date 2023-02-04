@@ -107,15 +107,13 @@ const StyledRedirectOnEmptyCart = styled.div`
 
 const CartDetailContainer = () => {
   const { cart, removeItemCart, clearCart, setOrderIdState, orderIdState } = useContext(cartContexto);
-  console.log('orderIdState:', orderIdState)
-
 
   const navigate = useNavigate();
 
   const handleCheckout = async () => {
     const cartModificate = () =>
       cart.map((product) => ({
-        id: product.id,
+        index: product.index,
         nameProduct: product.nameProduct,
         price: product.price,
         counter: product.counter,
@@ -139,10 +137,9 @@ const CartDetailContainer = () => {
       navigate(`/purchase/${orderDocumentNew.id}`);
       return orderDocumentNew;
     };
-
     createBuyOrder();
-
-    /*   clearCart(); */
+    clearCart(); 
+    
   };
 
   const reduceTotalPrice = () => {

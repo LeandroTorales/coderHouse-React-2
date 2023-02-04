@@ -1,8 +1,9 @@
-import { getDocs, query, where } from "firebase/firestore";
+import { getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { productsCollection } from "../dataObjects/firebase";
 
 export const getPromiseItems = async () => {
-  const querySnapshot = await getDocs(productsCollection);
+  const queryPersonalizada = query(productsCollection, orderBy("index"), limit(4));
+  const querySnapshot = await getDocs(queryPersonalizada);
   const dataDocs = querySnapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
@@ -11,10 +12,7 @@ export const getPromiseItems = async () => {
 };
 
 export const getByCategoryItems = async (categoryId) => {
-  const consulta = query(
-    productsCollection,
-    where("category", "==", Number(categoryId))
-  );
+  const consulta = query(productsCollection, where("category", "==", Number(categoryId)));
   const querySnapshot = await getDocs(consulta);
   const dataDocs = querySnapshot.docs.map((doc) => ({
     ...doc.data(),
