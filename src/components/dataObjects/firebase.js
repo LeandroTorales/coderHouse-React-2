@@ -28,7 +28,8 @@ export const exportData = async () => {
     {
       id: 1,
       nameProduct: "nike tn plus",
-      imgUrl: "https://i.ebayimg.com/thumbs/images/g/L7AAAOSwRn1hQKD-/s-l300.jpg",
+      imgUrl:
+        "https://i.ebayimg.com/thumbs/images/g/L7AAAOSwRn1hQKD-/s-l300.jpg",
       textDescription:
         "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual",
       price: 65000,
@@ -40,7 +41,8 @@ export const exportData = async () => {
     {
       id: 2,
       nameProduct: "nike tn plus",
-      imgUrl: "https://i.ebayimg.com/thumbs/images/g/U3EAAOSwHdtjfYn0/s-l300.jpg",
+      imgUrl:
+        "https://i.ebayimg.com/thumbs/images/g/U3EAAOSwHdtjfYn0/s-l300.jpg",
       price: 59999,
       stock: 15,
       sizes: [39, 40, 41, 42],
@@ -50,7 +52,8 @@ export const exportData = async () => {
     {
       id: 3,
       nameProduct: "nike tn plus advanced",
-      imgUrl: "https://http2.mlstatic.com/D_NQ_NP_774114-MLA53120075411_012023-W.jpg",
+      imgUrl:
+        "https://http2.mlstatic.com/D_NQ_NP_774114-MLA53120075411_012023-W.jpg",
       price: 75000,
       stock: 4,
       sizes: [41, 42, 43, 44, 45],
@@ -104,7 +107,8 @@ export const exportData = async () => {
     {
       id: 8,
       nameProduct: "tnf puffer",
-      imgUrl: "https://http2.mlstatic.com/D_NQ_NP_881689-MLA51358248145_082022-W.jpg",
+      imgUrl:
+        "https://http2.mlstatic.com/D_NQ_NP_881689-MLA51358248145_082022-W.jpg",
       price: 120000,
       stock: 20,
       sizes: ["S", "M", "L", "XL", "XXL"],

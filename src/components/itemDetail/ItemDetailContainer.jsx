@@ -26,10 +26,10 @@ const ItemDetailContainer = () => {
   let stockDinamic;
   if (productFind) {
     noStock = 0;
-   stockDinamic = product.stock - productFind.counter;
+    stockDinamic = product.stock - productFind.counter;
   } else {
     noStock = null;
-   stockDinamic = product.stock;
+    stockDinamic = product.stock;
   }
 
   return (

@@ -77,26 +77,16 @@ const NavBar = () => {
             />
           </Link>
 
-          <Link
-            to="/preguntasFrecuentes"
-            className="link--react__router"
-          >
+          <Link to="/preguntasFrecuentes" className="link--react__router">
             <CategoryComponent
               NameCategory="Preguntas frecuentes"
               key={"preguntas frecuentes"}
             />
           </Link>
 
-          <Link
-            to="/orders"
-            className="link--react__router"
-          >
-            <CategoryComponent
-              NameCategory="Mis compras"
-              key={"Mis compras"}
-            />
+          <Link to="/orders" className="link--react__router">
+            <CategoryComponent NameCategory="Mis compras" key={"Mis compras"} />
           </Link>
-
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <Link to="/cart">

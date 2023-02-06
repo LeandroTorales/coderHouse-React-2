@@ -15,19 +15,28 @@ import { exportData } from "./components/dataObjects/firebase";
 function App() {
   return (
     <>
- {/*  <button onClick={() => exportData()}>Export</button>  */}
+      {/*  <button onClick={() => exportData()}>Export</button>  */}
       <CartContext>
         <BrowserRouter>
           <NavBar />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/contacto" element={<ContactoContainer />} />
-            <Route path="/preguntasFrecuentes" element={<PreguntasFrecuentesContainer />} />
+            <Route
+              path="/preguntasFrecuentes"
+              element={<PreguntasFrecuentesContainer />}
+            />
             <Route path="/cart" element={<CartDetailContainer />} />
             <Route path="/products" element={<ItemListContainer />} />
-            <Route path="/products/:categoryId" element={<ItemListContainer />} />
+            <Route
+              path="/products/:categoryId"
+              element={<ItemListContainer />}
+            />
             <Route path="/product/:id" element={<ItemDetailContainer />} />
-            <Route path="/purchase/:orderId" element={<OrderDetailContainer />} />
+            <Route
+              path="/purchase/:orderId"
+              element={<OrderDetailContainer />}
+            />
             <Route path="/orders" element={<OrdersContainer />} />
           </Routes>
         </BrowserRouter>

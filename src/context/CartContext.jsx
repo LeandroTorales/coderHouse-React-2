@@ -9,7 +9,7 @@ const CartContext = ({ children }) => {
   const [orderIdState, setOrderIdState] = useState(undefined);
   const [counter, setCounter] = useState(0);
   const [purchaseProducts, setPurchaseProducts] = useState([]);
-const [getOrder, setGetOrder] = useState(undefined);
+  const [getOrder, setGetOrder] = useState(undefined);
   const addCounterItem = (number) => {
     setCounter(number);
   };
@@ -18,16 +18,18 @@ const [getOrder, setGetOrder] = useState(undefined);
   const addItem = (item) => {
     const productFind = cart.find((product) => product.index === item.index);
 
-    const index = cart.findIndex(elem => elem.index === item.index);
-    
+    const index = cart.findIndex((elem) => elem.index === item.index);
+
     if (productFind) {
       let cartCopy = [...cart];
-      const objDelete= cartCopy.splice(index, 1, {...productFind, counter: counter + productFind.counter });
+      const objDelete = cartCopy.splice(index, 1, {
+        ...productFind,
+        counter: counter + productFind.counter,
+      });
       return setCart(cartCopy);
     } else {
       return setCart([...cart, { ...item, counter: counter }]);
     }
-    
   };
 
   /* Se ocupa de reducir a un numero la cantidad de productos */
@@ -48,7 +50,7 @@ const [getOrder, setGetOrder] = useState(undefined);
   const clearCart = () => {
     setCart([]);
     setCounter(0);
-    setOrderIdState(undefined)
+    setOrderIdState(undefined);
   };
 
   const value = {
@@ -63,7 +65,7 @@ const [getOrder, setGetOrder] = useState(undefined);
     setPurchaseProducts,
     purchaseProducts,
     getOrder,
-    setGetOrder
+    setGetOrder,
   };
 
   return (

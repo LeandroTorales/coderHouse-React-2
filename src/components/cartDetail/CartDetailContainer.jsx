@@ -106,9 +106,12 @@ const StyledRedirectOnEmptyCart = styled.div`
 `;
 
 const CartDetailContainer = () => {
-  const { cart, removeItemCart, clearCart, setOrderIdState, orderIdState } = useContext(cartContexto);
+  const { cart, removeItemCart, clearCart, setOrderIdState, orderIdState } =
+    useContext(cartContexto);
 
   const navigate = useNavigate();
+
+  const fecha = new Date();
 
   const handleCheckout = async () => {
     const cartModificate = () =>
@@ -126,7 +129,10 @@ const CartDetailContainer = () => {
         phone: 1,
       },
       items: cartModificate(),
-      date: new Date(),
+      date: {
+        fecha: fecha.toLocaleDateString(),
+        hora: fecha.toLocaleTimeString(),
+      },
       total: reduceTotalPrice(),
     };
 
@@ -138,8 +144,7 @@ const CartDetailContainer = () => {
       return orderDocumentNew;
     };
     createBuyOrder();
-    clearCart(); 
-    
+    clearCart();
   };
 
   const reduceTotalPrice = () => {
