@@ -10,7 +10,7 @@ import CartContext from "./context/CartContext";
 import OrderDetailContainer from "./components/orderDetail/OrderDetailContainer";
 import OrdersContainer from "./components/ordersPedidos/OrdersContainer";
 import { exportData } from "./components/dataObjects/firebase";
-import LoginContainer from "./components/loginFolder/LoginContainer";
+import RegisterContainer from "./components/registerFolder/RegisterContainer";
 
 function App() {
   return (
@@ -21,14 +21,21 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/contacto" element={<ContactoContainer />} />
-            <Route path="/login" element={<LoginContainer />} />
             <Route path="/cart" element={<CartDetailContainer />} />
             <Route path="/products" element={<ItemListContainer />} />
-            <Route path="/products/:categoryId" element={<ItemListContainer />} />
+            <Route
+              path="/products/:categoryId"
+              element={<ItemListContainer />}
+            />
             <Route path="/product/:id" element={<ItemDetailContainer />} />
-            <Route path="/purchase/:orderId" element={<OrderDetailContainer />} />
+            <Route
+              path="/purchase/:orderId"
+              element={<OrderDetailContainer />}
+            />
             <Route path="/orders" element={<OrdersContainer />} />
+            <Route path="/contacto" element={<ContactoContainer />} />
+            <Route path="/register" element={<RegisterContainer />} />
+            <Route path="/login" element={<h2>fafae</h2>} />
           </Routes>
         </BrowserRouter>
       </CartContext>

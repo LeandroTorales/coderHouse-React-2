@@ -81,13 +81,9 @@ const NavBar = () => {
             <CategoryComponent NameCategory="Mis compras" key={"Mis compras"} />
           </Link>
 
-          <Link to="/login" className="link--react__router">
-            <CategoryComponent
-              NameCategory="Iniciar sesión"
-              key={"Iniciar sesión"}
-            />
+          <Link to="/register" className="link--react__router">
+            <CategoryComponent NameCategory="Registrarse" key={"Registrarse"} />
           </Link>
-
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <Link to="/cart">
