@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+import { userContext } from "../../context/UserContext";
 import Swal from "sweetalert2";
 
 const StyledForm = styled.form`
