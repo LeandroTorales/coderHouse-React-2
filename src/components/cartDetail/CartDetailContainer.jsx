@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { cartContexto } from "../../context/CartContext";
-import { userContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import { orderCollection } from "../dataObjects/firebase";
 import CartItemCard from "./components/CartItemCard";
 import Swal from "sweetalert2";

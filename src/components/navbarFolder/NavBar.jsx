@@ -9,7 +9,7 @@ import "./styles.css";
 import ButtonHamburguesa from "./componentsNavbar/ButtonHamburguesa";
 import BackColorComponent from "./componentsNavbar/BackColorComponent";
 import { useContext } from "react";
-import { userContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 const StyledContainerHeader = styled.header`
   display: flex;
