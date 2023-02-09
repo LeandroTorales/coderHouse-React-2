@@ -8,14 +8,14 @@ import HomePage from "./pages/HomePage";
 import CartContext from "./context/CartContext";
 import OrderDetailContainer from "./components/orderDetail/OrderDetailContainer";
 import OrdersContainer from "./components/ordersPedidos/OrdersContainer";
-import { exportData } from "./components/dataObjects/firebase";
+
 import RegisterContainer from "./components/registerFolder/RegisterContainer";
 import UserContext from "./context/UserContext";
 
 function App() {
   return (
     <>
-      {/*  <button onClick={() => exportData()}>Export</button>  */}
+    
       <UserContext>
         <CartContext>
           <BrowserRouter>
@@ -24,18 +24,12 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/cart" element={<CartDetailContainer />} />
               <Route path="/products" element={<ItemListContainer />} />
-              <Route
-                path="/products/:categoryId"
-                element={<ItemListContainer />}
-              />
+              <Route path="/products/:categoryId" element={<ItemListContainer />} />
               <Route path="/product/:id" element={<ItemDetailContainer />} />
-              <Route
-                path="/purchase/:orderId"
-                element={<OrderDetailContainer />}
-              />
+              <Route path="/purchase/:orderId" element={<OrderDetailContainer />} />
               <Route path="/orders" element={<OrdersContainer />} />
               <Route path="/register" element={<RegisterContainer />} />
-               <Route path="/login" element={<h2>fafae</h2>} />
+              <Route path="/login" element={<h2>fafae</h2>} />
             </Routes>
           </BrowserRouter>
         </CartContext>

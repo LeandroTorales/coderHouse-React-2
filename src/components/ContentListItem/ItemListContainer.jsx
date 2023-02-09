@@ -10,7 +10,7 @@ const ItemListContainer = () => {
   let { categoryId } = useParams();
 
   const getItems = async () => {
-    if (categoryId == undefined) {
+    if (categoryId === undefined) {
       let respuesta = await getPromiseItems();
       return setProducts(respuesta);
     } else {
@@ -25,7 +25,7 @@ const ItemListContainer = () => {
 
   return (
     <>
-      {products.length == 0 ? (
+      {products.length === 0 ? (
         <div className="spinner-container">
           <SpinnerCircular size={100} />
           <h2>Cargando productos...</h2>

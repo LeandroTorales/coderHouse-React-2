@@ -119,7 +119,7 @@ const CartDetailContainer = () => {
   const fecha = new Date();
 
   const handleCheckout = async () => {
-    if (form.name == "" || form.surname == "" || form.phone == "") {
+    if (form.name === "" || form.surname === "" || form.phone === "") {
       Swal.fire({
         title:
           "Parece que no te tenemos en nuestra base de datos, seras redirigido a la pagina de registro 😊",
