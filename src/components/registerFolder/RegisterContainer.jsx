@@ -146,6 +146,7 @@ const RegisterContainer = () => {
       onChangeField(email);
       return setIsValidEmail(true);
     } else {
+      onChangeField(email);
       return setIsValidEmail(false);
     }
   };
@@ -166,6 +167,7 @@ contains only 0-9a-zA-Z
       onChangeField(password);
       return setIsValidPassword(true);
     } else {
+      onChangeField(password);
       return setIsValidPassword(false);
     }
   };
@@ -204,7 +206,8 @@ contains only 0-9a-zA-Z
                   name="name"
                   onChange={onChangeField}
                   placeholder="Nombre"
-                  className="input--field"
+                    className="input--field"
+                    value={userData.name}
                 />
               </FormControl>
               <FormControl isRequired>
@@ -215,6 +218,7 @@ contains only 0-9a-zA-Z
                   onChange={onChangeField}
                   placeholder="Apellido"
                   className="input--field"
+                  value={userData.surname}
                 />
               </FormControl>
             </div>
@@ -225,8 +229,8 @@ contains only 0-9a-zA-Z
                 name="email"
                 onChange={regexEmail}
                 placeholder="Dirección email"
-                  className={`input--field ${isValidEmail ? "" : "active"}`}
-                  value={userData.email}
+                className={`input--field ${isValidEmail ? "" : "active"}`}
+                value={userData.email}
               />
               {isValidEmail ? (
                 ""
@@ -251,7 +255,8 @@ contains only 0-9a-zA-Z
                   onChange={regexPassword}
                   placeholder="Contraseña"
                   className={`input--field ${isValidPassword ? "" : "active"}`}
-                  autoComplete="true"value={userData.password}
+                  autoComplete="true"
+                  value={userData.password}
                 />
               </div>
               {isValidPassword ? (
@@ -281,8 +286,8 @@ contains only 0-9a-zA-Z
                   onChange={regexTelephone}
                   placeholder="Numero de telefono"
                   className={`input--field ${isValidTelephone ? "" : "active"}`}
-                    id="telephoneField"
-                    value={userData.phone}
+                  id="telephoneField"
+                  value={userData.phone}
                 />
               </InputGroup>
               {!isValidPassword ? (
