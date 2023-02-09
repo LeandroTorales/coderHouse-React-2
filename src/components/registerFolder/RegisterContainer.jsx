@@ -225,7 +225,8 @@ contains only 0-9a-zA-Z
                 name="email"
                 onChange={regexEmail}
                 placeholder="Dirección email"
-                className={`input--field ${isValidEmail ? "" : "active"}`}
+                  className={`input--field ${isValidEmail ? "" : "active"}`}
+                  value={userData.email}
               />
               {isValidEmail ? (
                 ""
@@ -250,7 +251,7 @@ contains only 0-9a-zA-Z
                   onChange={regexPassword}
                   placeholder="Contraseña"
                   className={`input--field ${isValidPassword ? "" : "active"}`}
-                  autoComplete="true"
+                  autoComplete="true"value={userData.password}
                 />
               </div>
               {isValidPassword ? (
@@ -280,7 +281,8 @@ contains only 0-9a-zA-Z
                   onChange={regexTelephone}
                   placeholder="Numero de telefono"
                   className={`input--field ${isValidTelephone ? "" : "active"}`}
-                  id="telephoneField"
+                    id="telephoneField"
+                    value={userData.phone}
                 />
               </InputGroup>
               {!isValidPassword ? (
@@ -295,7 +297,6 @@ contains only 0-9a-zA-Z
             </FormControl>
 
             <Button type="submit" disabled={!(userData.name !== "")}>
-              {" "}
               Registrarse
             </Button>
             <p>
