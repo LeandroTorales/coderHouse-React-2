@@ -35,7 +35,7 @@ function App() {
               />
               <Route path="/orders" element={<OrdersContainer />} />
               <Route path="/register" element={<RegisterContainer />} />
-              <Route path="/login" element={<h2>fafae</h2>} />
+               <Route path="/login" element={<h2>fafae</h2>} />
             </Routes>
           </BrowserRouter>
         </CartContext>
