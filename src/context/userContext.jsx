@@ -1,13 +1,20 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
-export const userContext = createContext({ objeto: "Soy un contexto" });
+export const userContext = createContext();
 
-export const UserContextProvider = ({ children }) => {
-  return (
-    <>
-      <userContext.Provider value={{ user: "juancito" }}>
-        {children}
-      </userContext.Provider>
-    </>
-  );
+const UserContext = ({ children }) => {
+  const [userData, setUserData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+    phone: "",
+  });
+  const [form, setForm] = useState(userData);
+
+  const value = { userData, setUserData, form, setForm };
+
+  return <userContext.Provider value={value}>{children}</userContext.Provider>;
 };
+
+export default UserContext;

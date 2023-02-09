@@ -4,8 +4,10 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { cartContexto } from "../../context/CartContext";
+import { userContext } from "../../context/UserContext";
 import { orderCollection } from "../dataObjects/firebase";
 import CartItemCard from "./components/CartItemCard";
+import Swal from "sweetalert2";
 
 const StyledCartItems = styled.div`
   display: flex;
@@ -109,11 +111,25 @@ const CartDetailContainer = () => {
   const { cart, removeItemCart, clearCart, setOrderIdState, orderIdState } =
     useContext(cartContexto);
 
+  const { form } = useContext(userContext);
+  console.log("form:", form);
+
   const navigate = useNavigate();
 
   const fecha = new Date();
 
   const handleCheckout = async () => {
+    if (form.name == "" || form.surname == "" || form.phone == "") {
+      Swal.fire({
+        title:
+          "Parece que no te tenemos en nuestra base de datos, seras redirigido a la pagina de registro 😊",
+        timer: 3000,
+      });
+      return setTimeout(() => {
+        navigate("/register");
+      }, 3000);
+    }
+
     const cartModificate = () =>
       cart.map((product) => ({
         index: product.index,
@@ -124,9 +140,9 @@ const CartDetailContainer = () => {
 
     const order = {
       buyer: {
-        name: "",
-        email: "",
-        phone: 1,
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
       },
       items: cartModificate(),
       date: {
@@ -138,7 +154,6 @@ const CartDetailContainer = () => {
 
     const createBuyOrder = async () => {
       const orderDocumentNew = await addDoc(orderCollection, order);
-      console.log("orderDocumentNew:", orderDocumentNew);
       setOrderIdState(orderDocumentNew.id);
       navigate(`/purchase/${orderDocumentNew.id}`);
       return orderDocumentNew;

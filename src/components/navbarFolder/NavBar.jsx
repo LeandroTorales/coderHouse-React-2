@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import ButtonHamburguesa from "./componentsNavbar/ButtonHamburguesa";
 import BackColorComponent from "./componentsNavbar/BackColorComponent";
+import { useContext } from "react";
+import { userContext } from "../../context/UserContext";
 
 const StyledContainerHeader = styled.header`
   display: flex;
@@ -25,6 +27,8 @@ const StyledContainerHeader = styled.header`
 
 const NavBar = () => {
   const [click, setClicked] = useState(false);
+
+  const { form } = useContext(userContext);
 
   const handleClick = () => {
     setClicked(!click);
@@ -69,21 +73,22 @@ const NavBar = () => {
             />
           </Link>
 
-          <Link to="/contacto" className="link--react__router">
-            <CategoryComponent
-              handleClickFunc={handleClick}
-              NameCategory="Contacto"
-              key={"contacto"}
-            />
-          </Link>
-
           <Link to="/orders" className="link--react__router">
             <CategoryComponent NameCategory="Mis compras" key={"Mis compras"} />
           </Link>
 
-          <Link to="/register" className="link--react__router">
-            <CategoryComponent NameCategory="Registrarse" key={"Registrarse"} />
-          </Link>
+          {form.name !== "" ? (
+            <Link to="/register" className="link--react__router">
+              <CategoryComponent NameCategory="Usuario" key={"Usuario"} />
+            </Link>
+          ) : (
+            <Link to="/register" className="link--react__router">
+              <CategoryComponent
+                NameCategory="Registrarse"
+                key={"Registrarse"}
+              />
+            </Link>
+          )}
         </ContainerNavCategories>
         <ButtonHamburguesa handleClickFunc={handleClick} propClicked={click} />
         <Link to="/cart">

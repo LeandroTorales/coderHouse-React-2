@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   FormControl,
   FormLabel,
@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { userContext } from "../../context/UserContext";
+import Swal from "sweetalert2";
 
 const StyledForm = styled.form`
   display: flex;
@@ -109,13 +111,9 @@ const StyledForm = styled.form`
 `;
 
 const RegisterContainer = () => {
-  const [userData, setUserData] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    password: "",
-    phone: "",
-  });
+  const { userData, setUserData, form, setForm } = useContext(userContext);
+  console.log("fodadrm:", form);
+
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
   const [isValidTelephone, setIsValidTelephone] = useState(true);
@@ -123,7 +121,7 @@ const RegisterContainer = () => {
   const onChangeField = (e) => {
     const field = e.target.name;
     const value = e.target.value.trim();
-   
+
     const copyUserData = { ...userData };
     console.log("copyUserData:", copyUserData);
     copyUserData[field] = value;
@@ -132,7 +130,11 @@ const RegisterContainer = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("hola");
+    setForm(userData);
+    return Swal.fire({
+      title: "❤ Gracias por registrarte ❤",
+      timer: 3000,
+    });
   };
 
   const regexEmail = (email) => {
@@ -178,113 +180,131 @@ contains only 0-9a-zA-Z
     } else {
       return setIsValidTelephone(false);
     }
-    
-  }
-
+  };
 
   return (
-    <StyledForm onSubmit={onSubmit}>
-      <div className="container--form">
-        <div className="flex--name">
-          <FormControl isRequired>
-            <FormLabel>Nombre</FormLabel>
-            <Input
-              type="text"
-              name="name"
-              onChange={onChangeField}
-              placeholder="Nombre"
-              className="input--field"
-              value={userData.name}
-            />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Apellido</FormLabel>
-            <Input
-              type="text"
-              name="surname"
-              onChange={onChangeField}
-              placeholder="Apellido"
-              className="input--field"
-              value={userData.surname}
-            />
-          </FormControl>
-        </div>
-        <FormControl isRequired isInvalid={!isValidEmail}>
-          <FormLabel>Email</FormLabel>
-          <Input
-            type="email"
-            name="email"
-            onChange={regexEmail}
-            placeholder="Dirección email"
-            className={`input--field ${isValidEmail ? "" : "active"}`}
-            value={userData.email}
-          />
-          {isValidEmail ? (
-            ""
-          ) : (
-            <FormErrorMessage className={isValidEmail ? "" : "active--text"}>
-              Ingrese un email correcto.
-            </FormErrorMessage>
-          )}
-        </FormControl>
-        <FormControl
-          isRequired
-          isInvalid={!isValidPassword}
-          className="field--password--flex"
-        >
-          <div>
-            <FormLabel>Contraseña</FormLabel>
-            <Input
-              type="password"
-              name="password"
-              onChange={regexPassword}
-              placeholder="Contraseña"
-              className={`input--field ${isValidPassword ? "" : "active"}`}
-              autoComplete="true"
-              value={userData.password}
-            />
+    <div>
+      {form.name !== "" ? (
+        <StyledForm>
+          <div className="container--form">
+            <h2>Tu usuario:</h2>
+            <span>Nombre: {form.name}</span>
+            <span>Apellido: {form.surname}</span>
+            <span>Email: {form.email}</span>
           </div>
-          {isValidPassword ? (
-            ""
-          ) : (
-            <FormErrorMessage className={isValidPassword ? "" : "active--text"}>
-              La contraseña debe tener un minimo de 8 caracteres en total, 1
-              numero, 1 letra minúscula y 1 letra mayúscula.
-            </FormErrorMessage>
-          )}
-        </FormControl>
+        </StyledForm>
+      ) : (
+        <StyledForm onSubmit={onSubmit}>
+          <div className="container--form">
+            <div className="flex--name">
+              <FormControl isRequired>
+                <FormLabel>Nombre</FormLabel>
+                <Input
+                  type="text"
+                  name="name"
+                  onChange={onChangeField}
+                  placeholder="Nombre"
+                  className="input--field"
+                />
+              </FormControl>
+              <FormControl isRequired>
+                <FormLabel>Apellido</FormLabel>
+                <Input
+                  type="text"
+                  name="surname"
+                  onChange={onChangeField}
+                  placeholder="Apellido"
+                  className="input--field"
+                />
+              </FormControl>
+            </div>
+            <FormControl isRequired isInvalid={!isValidEmail}>
+              <FormLabel>Email</FormLabel>
+              <Input
+                type="email"
+                name="email"
+                onChange={regexEmail}
+                placeholder="Dirección email"
+                className={`input--field ${isValidEmail ? "" : "active"}`}
+              />
+              {isValidEmail ? (
+                ""
+              ) : (
+                <FormErrorMessage
+                  className={isValidEmail ? "" : "active--text"}
+                >
+                  Ingrese un email correcto.
+                </FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl
+              isRequired
+              isInvalid={!isValidPassword}
+              className="field--password--flex"
+            >
+              <div>
+                <FormLabel>Contraseña</FormLabel>
+                <Input
+                  type="password"
+                  name="password"
+                  onChange={regexPassword}
+                  placeholder="Contraseña"
+                  className={`input--field ${isValidPassword ? "" : "active"}`}
+                  autoComplete="true"
+                />
+              </div>
+              {isValidPassword ? (
+                ""
+              ) : (
+                <FormErrorMessage
+                  className={isValidPassword ? "" : "active--text"}
+                >
+                  La contraseña debe tener un minimo de 8 caracteres en total, 1
+                  numero, 1 letra minúscula y 1 letra mayúscula.
+                </FormErrorMessage>
+              )}
+            </FormControl>
 
+            <FormControl isRequired isInvalid={!isValidTelephone}>
+              <FormLabel>Telefono</FormLabel>
+              <InputGroup className="telephone--field">
+                <InputLeftAddon
+                  children="+54"
+                  className={`children--telephoneNumber ${
+                    isValidTelephone ? "" : "active"
+                  }`}
+                />
+                <Input
+                  type="tel"
+                  name="phone"
+                  onChange={regexTelephone}
+                  placeholder="Numero de telefono"
+                  className={`input--field ${isValidTelephone ? "" : "active"}`}
+                  id="telephoneField"
+                />
+              </InputGroup>
+              {!isValidPassword ? (
+                ""
+              ) : (
+                <FormErrorMessage
+                  className={isValidTelephone ? "" : "active--text"}
+                >
+                  Ingrese un numero de telefono valido.
+                </FormErrorMessage>
+              )}
+            </FormControl>
 
-        <FormControl isRequired isInvalid={!isValidTelephone}>
-          <FormLabel>Telefono</FormLabel>
-          <InputGroup className="telephone--field">
-            <InputLeftAddon children="+54" className={`children--telephoneNumber ${isValidTelephone ? "" : "active"}`}/>
-            <Input
-              type="tel"
-              name="phone"
-              onChange={regexTelephone}
-              placeholder="Numero de telefono"
-              className= {`input--field ${isValidTelephone ? "" : "active"}`}
-              id="telephoneField"
-              value={userData.phone}
-            />
-          </InputGroup>
-          {!isValidPassword ? (
-            ""
-          ) : (
-            <FormErrorMessage className={isValidTelephone ? "" : "active--text"}>
-              Ingrese un numero de telefono valido.
-            </FormErrorMessage>
-          )}
-        </FormControl>
-
-
-        <Button type="submit" disabled={!(userData.name !== "")}> Registrarse</Button>
-        <p>
-          ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
-        </p>
-      </div>
-    </StyledForm>
+            <Button type="submit" disabled={!(userData.name !== "")}>
+              {" "}
+              Registrarse
+            </Button>
+            <p>
+              ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
+            </p>
+          </div>
+        </StyledForm>
+      )}
+    </div>
   );
 };
 
