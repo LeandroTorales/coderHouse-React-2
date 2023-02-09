@@ -8,16 +8,14 @@ import HomePage from "./pages/HomePage";
 import CartContext from "./context/CartContext";
 import OrderDetailContainer from "./components/orderDetail/OrderDetailContainer";
 import OrdersContainer from "./components/ordersPedidos/OrdersContainer";
-
 import RegisterContainer from "./components/registerFolder/RegisterContainer";
 import UserContext from "./context/UserContext";
 
 function App() {
   return (
     <>
-    
-      <UserContext>
-        <CartContext>
+      <CartContext>
+        <UserContext>
           <BrowserRouter>
             <NavBar />
             <Routes>
@@ -32,8 +30,8 @@ function App() {
               <Route path="/login" element={<h2>fafae</h2>} />
             </Routes>
           </BrowserRouter>
-        </CartContext>
-      </UserContext>
+        </UserContext>
+      </CartContext>
     </>
   );
 }
